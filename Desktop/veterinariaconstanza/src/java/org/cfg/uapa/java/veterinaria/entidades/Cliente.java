@@ -10,16 +10,16 @@ package org.cfg.uapa.java.veterinaria.entidades;
  * @author Yanelkys
  */
 public class Cliente {
-    private int id;
+  private int id;
   private String  nombre; 
   private String apellido;
   private String telefono;
   private String calle;
   private String apartamento;
   private String ciudad;
-  private  int pais_id ; 
+  private Pais pais_id ; 
   private String usuario;
- private  String clave; 
+  private String clave; 
 
     /**
      * @return the id
@@ -119,19 +119,6 @@ public class Cliente {
         this.ciudad = ciudad;
     }
 
-    /**
-     * @return the pais_id
-     */
-    public int getPais_id() {
-        return pais_id;
-    }
-
-    /**
-     * @param pais_id the pais_id to set
-     */
-    public void setPais_id(int pais_id) {
-        this.pais_id = pais_id;
-    }
 
     /**
      * @return the usuario
@@ -159,6 +146,14 @@ public class Cliente {
      */
     public void setClave(String clave) {
         this.clave = clave;
+    }
+
+    public void setPais(Pais paisPorId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Object getPais() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
  
 }
