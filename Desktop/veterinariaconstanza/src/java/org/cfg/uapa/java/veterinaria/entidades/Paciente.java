@@ -36,14 +36,14 @@ public class Paciente {
     /**
      * @return the cliente_id
      */
-    public int getCliente_id() {
+    public Cliente getCliente_id() {
         return cliente_id;
     }
 
     /**
      * @param cliente_id the cliente_id to set
      */
-    public void setCliente_id(int cliente_id) {
+    public void setCliente_id(Cliente cliente_id) {
         this.cliente_id = cliente_id;
     }
 
@@ -78,14 +78,14 @@ public class Paciente {
     /**
      * @return the raza_id
      */
-    public int getRaza_id() {
+    public Raza getRaza_id() {
         return raza_id;
     }
 
     /**
      * @param raza_id the raza_id to set
      */
-    public void setRaza_id(int raza_id) {
+    public void setRaza_id(Raza raza_id) {
         this.raza_id = raza_id;
     }
 
@@ -120,14 +120,14 @@ public class Paciente {
     /**
      * @return the doctor_id
      */
-    public int getDoctor_id() {
+    public Doctor getDoctor_id() {
         return doctor_id;
     }
 
     /**
      * @param doctor_id the doctor_id to set
      */
-    public void setDoctor_id(int doctor_id) {
+    public void setDoctor_id(Doctor doctor_id) {
         this.doctor_id = doctor_id;
     }
     

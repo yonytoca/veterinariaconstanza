@@ -48,28 +48,28 @@ public class Cita {
     /**
      * @return the paciente_id
      */
-    public int getPaciente_id() {
+    public Paciente getPaciente_id() {
         return paciente_id;
     }
 
     /**
      * @param paciente_id the paciente_id to set
      */
-    public void setPaciente_id(int paciente_id) {
+    public void setPaciente_id(Paciente paciente_id) {
         this.paciente_id = paciente_id;
     }
 
     /**
      * @return the doctor_id
      */
-    public int getDoctor_id() {
+    public Doctor getDoctor_id() {
         return doctor_id;
     }
 
     /**
      * @param doctor_id the doctor_id to set
      */
-    public void setDoctor_id(int doctor_id) {
+    public void setDoctor_id(Doctor doctor_id) {
         this.doctor_id = doctor_id;
     }
 
