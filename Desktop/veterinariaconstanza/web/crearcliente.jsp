@@ -15,7 +15,7 @@
         
         <h1>Crear Cliente</h1>
        
-        <form class="form-horizontal" action="/noticiasonline/CiudadController" method="post">
+        <form class="form-horizontal" action="/veterinariaconstanza/ClienteControl" method="post">
     <div class="form-group">
         <label>Nombre</label>
         <input type="text" name="inputNombre" style="width:20%;" id="inputNombre" class="form-control" placeholder="Nombre">
