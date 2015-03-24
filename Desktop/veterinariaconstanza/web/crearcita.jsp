@@ -6,15 +6,20 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
+
+<%@ page import="java.util.List"%>
+<%@ page import="org.cfg.uapa.java.veterinaria.modelos.ModeloDoctor"%>
+<%@ page import="org.cfg.uapa.java.veterinaria.entidades.Doctor"%>
+
+
+
+<%
+    List<Doctor> Doctor = ModeloDoctor.getInstancia().getListadoDoctores();
+
+%>
         <h1>Crear Cita</h1>
        
-        <form class="form-horizontal" action="/noticiasonline/CiudadController" method="post">
+        <form class="form-horizontal" action="/veterinariaconstanza/DoctorControles" method="post">
      <div class="form-group">
         <label>Fecha</label>
         <input type="text" name="inputfecha" style="width:30%;" id="inputNombre" class="form-control" placeholder="fecha"><br> <br>
@@ -25,15 +30,19 @@
       <label>Razon</label>
         <input type="text" name="inputrazon" style="width:30%;" id="inputNombre" class="form-control" placeholder="razon"><br> <br>
      </div>
+            <div class="form-group">
+        <button type="submit" class="btn btn-default" tabindex="3">Confirmar</button>
+    </div>
+            
+            
     <div class="form-group">
         <label>Pais</label>
         
-    </div>
+
     <div class="form-group">
         <button type="submit" class="btn btn-default" tabindex="3">Crear</button>
     </div>
 
 </form>
 
-    </body>
-</html>
+ 
