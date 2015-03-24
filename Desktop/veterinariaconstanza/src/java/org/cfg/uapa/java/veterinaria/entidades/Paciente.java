@@ -10,14 +10,14 @@ package org.cfg.uapa.java.veterinaria.entidades;
  * @author Yanelkys
  */
 public class Paciente {
-    private int id ;
-  private int cliente_id;
-   private String nombre;
+  private int id ;
+  private Cliente cliente_id;
+  private String nombre;
   private String genero;
-  private int raza_id;
+  private Raza raza_id;
   private String fecha_nacimiento;
   private int peso;
-  private int doctor_id;
+  private Doctor doctor_id;
 
     /**
      * @return the id

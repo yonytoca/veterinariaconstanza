@@ -11,7 +11,7 @@ package org.cfg.uapa.java.veterinaria.entidades;
  */
 public class Cita {
     
-   private int  id;
+  private int  id;
   private String fecha;  
   private Paciente paciente_id;
   private Doctor doctor_id ;
