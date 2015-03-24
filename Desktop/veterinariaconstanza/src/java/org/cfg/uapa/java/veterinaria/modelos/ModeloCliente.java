@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 import org.cfg.uapa.java.veterinaria.entidades.Cliente;
 
 /**
- *
+ * 
  * @author EDUARDO
  */
 public class ModeloCliente {
