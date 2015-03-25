@@ -24,9 +24,7 @@ public class ClienteControl extends HttpServlet {
        
         String nombre = request.getParameter("inputNombre");
         String apellido = request.getParameter("inputApellido");
-
-        Cliente cliente =  ModeloCliente.getInstancia().getcPorId(String.valueOf(inputcliente);
-        
+ 
         Cliente cliente = new Cliente();
         cliente.setNombre(nombre);
         cliente.setApellido(apellido);
@@ -35,7 +33,7 @@ public class ClienteControl extends HttpServlet {
 
         if (isCreado) {
 
-            response.sendRedirect("Cliente.jsp");
+            response.sendRedirect("cliente.jsp");
 
         } else {
 

@@ -9,9 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Doctor</title>
     </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
+    
+</h1><a href="creardoctor.jsp"> Agregar Doctor</a></h1>
+    
 </html>
