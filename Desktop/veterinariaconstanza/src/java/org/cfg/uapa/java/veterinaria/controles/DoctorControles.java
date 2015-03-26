@@ -32,7 +32,7 @@ public class DoctorControles extends HttpServlet {
         doctor.setApellido(apellido);
         
         
-        boolean isCreado = ModeloDoctor.getInstancia().crearCiudad(doctor);
+        boolean isCreado = ModeloDoctor.getInstancia().crearDoctor(doctor);
 
         if (isCreado) {
 

@@ -3,7 +3,10 @@
     Created on : 24-mar-2015, 2:29:19
     Author     : victor
 --%>
+<jsp:include page="teplate/header.jsp"/>
 
+<%@page import="org.cfg.uapa.java.veterinaria.entidades.Cita"%>
+<%@page import="org.cfg.uapa.java.veterinaria.modelos.ModeloCita"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
@@ -14,12 +17,12 @@
 
 
 <%
-    List<Doctor> Doctor = ModeloDoctor.getInstancia().getListadoDoctores();
+    List<Cita> Citas = ModeloCita.getInstancia().getListadoCita();
 
 %>
         <h1>Crear Cita</h1>
        
-        <form class="form-horizontal" action="/veterinariaconstanza/DoctorControles" method="post">
+        <form class="form-horizontal" action="/veterinariaconstanza/CitaControles" method="post">
      <div class="form-group">
         <label>Fecha</label>
         <input type="text" name="inputfecha" style="width:30%;" id="inputNombre" class="form-control" placeholder="fecha"><br> <br>
@@ -44,5 +47,5 @@
     </div>
 
 </form>
-
+<jsp:include page="teplate/footer.jsp"/>
  

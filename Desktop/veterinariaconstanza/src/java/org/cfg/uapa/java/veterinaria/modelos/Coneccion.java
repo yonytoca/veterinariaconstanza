@@ -1,7 +1,9 @@
 package org.cfg.uapa.java.veterinaria.modelos;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.text.MessageFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.Context;

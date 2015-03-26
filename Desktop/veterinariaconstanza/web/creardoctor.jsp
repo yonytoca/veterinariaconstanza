@@ -3,7 +3,7 @@
     Created on : 24-mar-2015, 3:52:35
     Author     : victor
 --%>
-
+<jsp:include page="teplate/header.jsp"/>
 <%@ page import="java.util.List"%>
 <%@ page import="org.cfg.uapa.java.veterinaria.modelos.ModeloDoctor"%>
 <%@ page import="org.cfg.uapa.java.veterinaria.entidades.Doctor"%>
@@ -27,4 +27,4 @@
          <div class="form-group">
         <button type="submit" class="btn btn-default" tabindex="3">Crear</button>
     </div>
-             
+        <jsp:include page="teplate/footer.jsp"/>     

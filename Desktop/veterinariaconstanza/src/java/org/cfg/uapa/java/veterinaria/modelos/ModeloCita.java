@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 import org.cfg.uapa.java.veterinaria.entidades.Cita;
 public class ModeloCita {
     
-    
+
     private static final ModeloCita INSTANCIA = new ModeloCita();
     
     public static ModeloCita getInstancia(){
@@ -30,9 +30,9 @@ public class ModeloCita {
     }
      private ModeloCita() { }
     
-    public List<Cita> getListadoCiudades() {
+    public List<Cita> getListadoCita() {
 
-        List<Cita> lista = new ArrayList<Cita>();
+        List<Cita> lista = new ArrayList<>();
 
         String sql = "select * from cita";
 
@@ -109,8 +109,6 @@ public class ModeloCita {
         
         return estado;
 
-    }
-    
-    
-    
+    }   
+     
 }

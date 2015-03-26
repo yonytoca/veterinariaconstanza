@@ -1,6 +1,6 @@
 <%-- 
     Document   : login
-    Created on : 24-mar-2015, 5:47:13
+    Created on : 24-mar-2015, 19:51:44
     Author     : victor
 --%>
 
@@ -9,33 +9,44 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-        <link rel=\"stylesheet\" type=\"text/css\" href=\"ccs/loginccs.css\"/>
+          <link href="css11/logincss.css" rel="stylesheet">
+         
     </head>
     <body>
-    <center>
-    <div class="row">
-        <div class="col-sm-6 col-md-4 col-md-offset-4">
-            <h1 class="text-center login-title">Entrar al sistema</h1>
-            <div class="account-wall">
-                <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
-                    alt="">
-                <form class="form-signin">
-                    <input type="text" class="form-control" placeholder="Email" required autofocus><br><br>
-                <input type="password" class="form-control" placeholder="Password" required><br><br>
-                 <label class="checkbox pull-left">
-                    <input type="checkbox" value="remember-me">
-                    Recordame   
-                </label>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button><br>
-               
-                <a href="#" class="pull-right need-help">Nesecita ayuda? </a><span class="clearfix"></span>
+        
+         
+             <div id="login">
+            <% if(session.getAttribute("loginFailed") !=null) { %>
+             
+            <h1>
+                <%=session.getAttribute("loginFailed")%>
+            </h1>
+             
+            <% 
+        }
+        %>
+            <div id="login_panel">
+                <form action="index.jsp" method="post" accept-charset="utf-8">
+                    <div class="login_fields">
+                        <div class="field">
+                            <label for="email">Usuario</label>
+                             
+                            <input type="text" name="usuario" value="" id="usuario" tabindex="1"/>
+                        </div>
+                        <div class="field">
+                            <label for="password">Clave</label>
+                             
+                            <input type="password" name="pass" value="" id="password" tabindex="2"/>
+                        </div>
+                    </div>
+                    <!-- .login_fields -->
+                    <div class="login_actions">
+                        <button type="submit" class="btn btn-orange" tabindex="3">Acceder</button>
+                    </div>
                 </form>
             </div>
-            <a href="#" class="text-center new-account">Crear una Cuenta </a>
+            <!-- #login_panel -->
         </div>
-    </div>
-</div>
-</center>
+        <!-- #login -->
     </body>
 </html>

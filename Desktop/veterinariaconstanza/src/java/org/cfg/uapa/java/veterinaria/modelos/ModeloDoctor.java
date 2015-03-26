@@ -78,7 +78,7 @@ public class ModeloDoctor {
         return lista;
     }
     
-    public boolean crearCiudad(Doctor Doctor) {
+    public boolean crearDoctor(Doctor Doctor) {
 
         boolean estado = false;
         PreparedStatement stmt = null ;
