@@ -15,37 +15,47 @@
 <%@ page import="org.cfg.uapa.java.veterinaria.entidades.Doctor"%>
 
 
-
 <%
     List<Cita> Citas = ModeloCita.getInstancia().getListadoCita();
 
 %>
-        <h1>Crear Cita</h1>
-       
-        <form class="form-horizontal" action="/veterinariaconstanza/CitaControles" method="post">
-     <div class="form-group">
-        <label>Fecha</label>
-        <input type="text" name="inputfecha" style="width:30%;" id="inputNombre" class="form-control" placeholder="fecha"><br> <br>
-         <label>Paciente</label>
-        <input type="text" name="inputpaciente" style="width:30%;" id="inputNombre" class="form-control" placeholder="paciente"><br> <br>
-    <label>Doctor</label>
-        <input type="text" name="inputdoctor" style="width:30%;" id="inputNombre" class="form-control" placeholder="doctor"><br> <br>
-      <label>Razon</label>
-        <input type="text" name="inputrazon" style="width:30%;" id="inputNombre" class="form-control" placeholder="razon"><br> <br>
-     </div>
-            <div class="form-group">
-        <button type="submit" class="btn btn-default" tabindex="3">Confirmar</button>
-    </div>
-            
-            
-    <div class="form-group">
-        <label>Pais</label>
         
+             
+      
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+        <link rel="stylesheet" href="css/formulariocss.css" />
+   
+    <center>
+        <h3>MANTENIMIENTO DE CITAS</h3>
+        <hr color="#003399"/>
+        <div id="contenedor">
+            <form action="/veterinariaconstanza/CitaControles" method="post">
+                <table>
 
-    <div class="form-group">
-        <button type="submit" class="btn btn-default" tabindex="3">Crear</button>
-    </div>
+                    <tr>
+                        <td>Fecha:</td>
+                        <td> <input type="text" name="inputFecha" required="" maxlength="5" /> 
+                        </td> <td>Paciente:</td>
+                        
+                        <td> <input type="text" name="inputPaciente" required=""></td>
+                    </tr>
+                    <tr>                        
+                        <td>Razón:</td>
+                        <td> <input type="text" name="inputRazon" required="" /> </td>
+                    </tr>
+                         
+ 
+                    <tr>
+                        <td></td>
+                        <td> <hr><button type="submit" class="btn btn-orange" tabindex="3">Aceptar</button></td>
+                    </tr>            
+            </table>  
+            </form>
 
-</form>
+        </div>
+
+    </center>
+
 <jsp:include page="teplate/footer.jsp"/>
  
