@@ -6,12 +6,15 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<jsp:include page="teplate/header.jsp"/>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Doctor</title>
-    </head>
+   
     
 </h1><a href="creardoctor.jsp"> Agregar Doctor</a></h1>
     
-</html>
+
+
+<jsp:include page="teplate/footer.jsp"/>
+        

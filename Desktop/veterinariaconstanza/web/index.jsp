@@ -6,7 +6,5 @@
 <jsp:include page="teplate/header.jsp"/>
 
 
-hhhhhhhhhhhhhhhhhhhhhhhhhh
-
 
 <jsp:include page="teplate/footer.jsp"/>

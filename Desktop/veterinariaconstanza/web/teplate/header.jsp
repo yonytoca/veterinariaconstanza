@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>No Sidebar - ZeroFour by HTML5 UP</title>
+        <title>Veterinaria Constanza</title>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="description" content="" />
         <meta name="keywords" content="" />
@@ -15,11 +15,15 @@
         <link rel="stylesheet" href="css/skel.css" />
         <link rel="stylesheet" href="css/style.css" />
         <link rel="stylesheet" href="css/style-desktop.css" />
+
         </noscript>
         <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
         <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
     </head>
-    <body class="no-sidebar">
+
+
+
+    <body  class="no-sidebar">
         <!-- Header -->
         <div id="header-wrapper">
             <div class="container">
@@ -36,27 +40,32 @@
                             <ul>
                                 <li class="current_page_item"><a href="index.jsp">Inicio</a></li>
                                 <li>
-                                    <a href="">Opcion</a>
+                                    <a href="">Reservar</a>
                                     <ul>
                                         <li><a href="crearcita.jsp">Crear Citas</a></li>
-                                        <li><a href="cita.jsp">cita</a></li>
-                                        <li>
-                                            <a href="creardoctor.jsp">Crear Doctores</a>
-                                            <ul>
-                                                <li><a href="#">Lorem ipsum dolor</a></li>
-                                                <li><a href="#">Phasellus consequat</a></li>
-                                                <li><a href="#">Magna phasellus</a></li>
-                                                <li><a href="#">Etiam dolore nisl</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Veroeros feugiat</a></li>
+                                        <li><a href="cita.jsp">cita</a></li>                                
                                     </ul>
                                 </li>
-                                <li><a href="left-sidebar.html">Left Sidebar</a></li>
-                                <li><a href="right-sidebar.html">Right Sidebar</a></li>
-                                <li><a href="no-sidebar.html">No Sidebar</a></li>
+                                <li><a href="">Doctores</a>
+                                    <ul>
+                                        <li><a href="creardoctor.jsp">Crear Doctores</a></li>
+                                        <li><a href="doctor.jsp">Ver Doctores</a></li>                                                
+                                    </ul>
+
+                                </li>
+                                <li><a href="">Cliente</a>
+                                    <ul>
+                                        <li><a href="crearcliente.jsp">Crear Cliente</a></li>
+                                        <li><a href="cliente.jsp">Ver Cliente</a></li>                                                
+                                    </ul>
+                                </li>
+                                <li><a href="">Logaut</a></li>
                             </ul>
                         </nav>
 
                     </div>
                 </header>
+                
+
+
+                              

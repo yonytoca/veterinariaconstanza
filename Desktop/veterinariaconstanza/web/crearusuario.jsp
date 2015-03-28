@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<jsp:include page="teplate/header.jsp"/>
   <form class="form-horizontal" action="/veterinariaconstanza/DoctorControles" method="post">
      <div class="form-group">
         <label>suario</label>
@@ -16,3 +17,4 @@
          <div class="form-group">
         <button type="submit" class="btn btn-default" tabindex="3">Crear</button>
     </div>
+      <jsp:include page="teplate/footer.jsp"/>

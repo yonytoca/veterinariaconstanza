@@ -15,78 +15,37 @@
 <%@ page import="org.cfg.uapa.java.veterinaria.entidades.Doctor"%>
 
 
+
 <%
     List<Cita> Citas = ModeloCita.getInstancia().getListadoCita();
 
 %>
+        <h1>Crear Cita</h1>
+       
+        <form class="form-horizontal" action="/veterinariaconstanza/CitaControles" method="post">
+     <div class="form-group">
+        <label>Fecha</label>
+        <input type="text" name="inputfecha" style="width:30%;" id="inputNombre" class="form-control" placeholder="fecha"><br> <br>
+         <label>Paciente</label>
+        <input type="text" name="inputpaciente" style="width:30%;" id="inputNombre" class="form-control" placeholder="paciente"><br> <br>
+    <label>Doctor</label>
+        <input type="text" name="inputdoctor" style="width:30%;" id="inputNombre" class="form-control" placeholder="doctor"><br> <br>
+      <label>Razon</label>
+        <input type="text" name="inputrazon" style="width:30%;" id="inputNombre" class="form-control" placeholder="razon"><br> <br>
+     </div>
+            <div class="form-group">
+        <button type="submit" class="btn btn-default" tabindex="3">Confirmar</button>
+    </div>
+            
+            
+    <div class="form-group">
+        <label>Pais</label>
         
-             
-        <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-        <style type="text/css">
-            input{
-                border-radius:10px;
-                box-shadow:0px 0px 25px rgba(30,144,255,0.3) inset;
-                width: 200px;
-                height: 30px;
-                padding: 5px;
-                margin: 5px;
 
-            }
-            #contenedor{
-                width: 700px;
-                border: 1px solid rgba(255,255,255,0.4);
-                padding: 20px;
-                margin: 50px;
-                border-radius: 25px 25px 25px 25px;
-                box-shadow:0px 10px 25px #0066cc;
-                border-color: #ffffff;
+    <div class="form-group">
+        <button type="submit" class="btn btn-default" tabindex="3">Crear</button>
+    </div>
 
-            }
-            td{
-                text-align: right;
-                font-size: 25px italic;
-
-            }
-
-        </style>
-    </head>
-    <body>
-
-    <center>
-        <h3>MANTENIMIENTO DE CITAS</h3>
-        <hr color="#003399"/>
-        <div id="contenedor">
-            <form action="/veterinariaconstanza/CitaControles" method="post">
-                <table>
-
-                    <tr>
-                        <td>Fecha:</td>
-                        <td> <input type="text" name="inputFecha" required="" maxlength="5" /> 
-                        </td> <td>Paciente:</td>
-                        
-                        <td> <input type="text" name="inputPaciente" required=""></td>
-                    </tr>
-                    <tr>                        
-                        <td>Razón:</td>
-                        <td> <input type="text" name="inputRazon" required="" /> </td>
-                    </tr>
-                         
- 
-                    <tr>
-                        <td></td>
-                        <td> <hr><button type="submit" class="btn btn-orange" tabindex="3">Aceptar</button></td>
-                    </tr>            
-            </table>  
-            </form>
-
-        </div>
-
-    </center>
-</body>
-
-</html>
+</form>
 <jsp:include page="teplate/footer.jsp"/>
  
