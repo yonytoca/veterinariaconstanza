@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.cfg.uapa.java.veterinaria.modelos;
+package org.cfg.uapa.java.veterinaria.servicios;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,14 +20,14 @@ import org.cfg.uapa.java.veterinaria.entidades.Pais;
  *
  * @author ecabrerar
  */
-public class ModeloPais {
+public class ServicioPais {
 
-    private static final ModeloPais INSTANCIA = new ModeloPais();
+    private static final ServicioPais INSTANCIA = new ServicioPais();
 
-    private ModeloPais() {
+    private ServicioPais() {
     }
 
-    public static ModeloPais getInstancia() {
+    public static ServicioPais getInstancia() {
         return INSTANCIA;
     }
 
@@ -55,7 +55,7 @@ public class ModeloPais {
             }
 
         } catch (SQLException e) {
-            Logger.getLogger(ModeloPais.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(ServicioPais.class.getName()).log(Level.SEVERE, null, e);
         } finally {
             try {
                 if (rs != null) {
@@ -68,7 +68,7 @@ public class ModeloPais {
                     con.close();
                 }
             } catch (SQLException e) {
-                Logger.getLogger(ModeloPais.class.getName()).log(Level.SEVERE, null, e);
+                Logger.getLogger(ServicioPais.class.getName()).log(Level.SEVERE, null, e);
             }
         }
 
@@ -97,7 +97,7 @@ public class ModeloPais {
             pais.setDescripcion(rs.getString("nombre"));
 
         } catch (SQLException e) {
-            Logger.getLogger(ModeloPais.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(ServicioPais.class.getName()).log(Level.SEVERE, null, e);
         } finally {
             try {
                 if (rs != null) {
@@ -110,7 +110,7 @@ public class ModeloPais {
                     con.close();
                 }
             } catch (SQLException e) {
-                Logger.getLogger(ModeloPais.class.getName()).log(Level.SEVERE, null, e);
+                Logger.getLogger(ServicioPais.class.getName()).log(Level.SEVERE, null, e);
             }
         }
 

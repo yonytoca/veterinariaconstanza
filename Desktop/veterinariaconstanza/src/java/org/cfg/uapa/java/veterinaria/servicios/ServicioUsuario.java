@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.cfg.uapa.java.veterinaria.modelos;
+package org.cfg.uapa.java.veterinaria.servicios;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,15 +20,15 @@ import org.cfg.uapa.java.veterinaria.entidades.Usuario;
  *
  * @author victor
  */
-public class ModeloUsuario {
-     private static final ModeloUsuario INSTANCIA = new ModeloUsuario();
+public class ServicioUsuario {
+     private static final ServicioUsuario INSTANCIA = new ServicioUsuario();
      
-    public static ModeloUsuario getInstancia(){
+    public static ServicioUsuario getInstancia(){
         return INSTANCIA;
         
     }
     
-       private ModeloUsuario() { }
+       private ServicioUsuario() { }
        
       public List<Usuario> getUsuarios() {
 

@@ -1,4 +1,4 @@
-package org.cfg.uapa.java.veterinaria.modelos;
+package org.cfg.uapa.java.veterinaria.servicios;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

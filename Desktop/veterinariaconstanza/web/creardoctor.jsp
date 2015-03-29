@@ -16,7 +16,11 @@
     List<Doctor> Doctor = ModeloDoctor.getInstancia().getListadoDoctores();
 
 %>
-        
+ <link rel="stylesheet" href="css/formulariocss.css" />      
+<div id="contenedor">
+    
+            <form action="/veterinariaconstanza/CitaControles" method="post">
+                
          <form class="form-horizontal" action="/veterinariaconstanza/DoctorControles" method="post">
      <div class="form-group">
         <label>Nombre</label>
@@ -27,4 +31,6 @@
          <div class="form-group">
         <button type="submit" class="btn btn-default" tabindex="3">Crear</button>
     </div>
+            </form>
+</div>
         <jsp:include page="teplate/footer.jsp"/>     

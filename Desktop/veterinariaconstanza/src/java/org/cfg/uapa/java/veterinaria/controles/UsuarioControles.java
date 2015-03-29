@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.cfg.uapa.java.veterinaria.entidades.Usuario;
-import org.cfg.uapa.java.veterinaria.modelos.ModeloUsuario;
+import org.cfg.uapa.java.veterinaria.servicios.ServicioUsuario;
 
 /**
  *

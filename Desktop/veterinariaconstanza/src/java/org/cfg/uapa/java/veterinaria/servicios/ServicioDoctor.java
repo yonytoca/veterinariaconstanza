@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.cfg.uapa.java.veterinaria.modelos;
+package org.cfg.uapa.java.veterinaria.servicios;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,17 +20,17 @@ import org.cfg.uapa.java.veterinaria.entidades.Doctor;
  *
  * @author victor
  */
-public class ModeloDoctor {
+public class ServicioDoctor {
 
     
     
-    private static final ModeloDoctor INSTANCIA = new ModeloDoctor();
+    private static final ServicioDoctor INSTANCIA = new ServicioDoctor();
     
-    public static ModeloDoctor getInstancia(){
+    public static ServicioDoctor getInstancia(){
         return INSTANCIA;
         
     }
-     private ModeloDoctor() { }
+     private ServicioDoctor() { }
     
     public List<Doctor> getListadoDoctores() {
 
@@ -58,7 +58,7 @@ public class ModeloDoctor {
             }
 
         } catch (SQLException e) {
-            Logger.getLogger(ModeloCita.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(ServicioCita.class.getName()).log(Level.SEVERE, null, e);
         } finally {
             try {
                 if (rs != null) {
@@ -71,7 +71,7 @@ public class ModeloDoctor {
                     con.close();
                 }
             } catch (SQLException e) {
-                Logger.getLogger(ModeloCita.class.getName()).log(Level.SEVERE, null, e);
+                Logger.getLogger(ServicioCita.class.getName()).log(Level.SEVERE, null, e);
             }
         }
 
@@ -98,13 +98,13 @@ public class ModeloDoctor {
 
         } catch (SQLException e) {
             estado = false;
-             Logger.getLogger(ModeloCita.class.getName()).log(Level.SEVERE, null, e);
+             Logger.getLogger(ServicioCita.class.getName()).log(Level.SEVERE, null, e);
         }finally{
             if (stmt != null) {
                 try {
                     stmt.close();
                 } catch (SQLException ex) {
-                    Logger.getLogger(ModeloCita.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(ServicioCita.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 }
         }

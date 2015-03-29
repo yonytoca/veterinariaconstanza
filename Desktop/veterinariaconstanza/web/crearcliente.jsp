@@ -3,14 +3,15 @@
     Created on : 25/03/2015, 08:58:07 PM
     Author     : EDUARDO
 --%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <jsp:include page="teplate/header.jsp"/>
 <link rel="stylesheet" href="css/formulariocss.css" />
-    <center>
-        <h3>MANTENIMIENTO DE CLIENTE</h3>
-        <hr color="#003399"/>
-        <div id="contenedor">
+    
+          <h3>MANTENIMIENTO DE CLIENTE</h3>
+        
+        <div id="contenedor">          
             <form action="" method="post">
                 <table>
 
@@ -45,17 +46,12 @@
                     <tr>
                         <td>Clave:</td>
                         <td> <input type="password" name="txtcla" required="" /> </td>
-                    </tr>
-
-                    <tr>
-                        <td></td>
-                        <td><hr><button type="submit" class="btn btn-orange" tabindex="3">Aceptar</button> </td>
-                    </tr>            
+                    </tr>                               
             </table>  
+               <input type="submit" class="styled-button-1" value="Enviar" />
             </form>
 
         </div>
 
-    </center>
 
 <jsp:include page="teplate/footer.jsp"/>

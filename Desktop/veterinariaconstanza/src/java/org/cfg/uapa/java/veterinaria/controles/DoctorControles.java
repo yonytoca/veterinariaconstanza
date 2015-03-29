@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.cfg.uapa.java.veterinaria.entidades.Doctor;
-import org.cfg.uapa.java.veterinaria.modelos.ModeloDoctor;
+import org.cfg.uapa.java.veterinaria.servicios.ServicioDoctor;
 
 /**
  *
@@ -32,7 +32,7 @@ public class DoctorControles extends HttpServlet {
         doctor.setApellido(apellido);
         
         
-        boolean isCreado = ModeloDoctor.getInstancia().crearDoctor(doctor);
+        boolean isCreado = ServicioDoctor.getInstancia().crearDoctor(doctor);
 
         if (isCreado) {
 

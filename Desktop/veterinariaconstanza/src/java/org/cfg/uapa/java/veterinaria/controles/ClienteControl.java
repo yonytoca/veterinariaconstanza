@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.cfg.uapa.java.veterinaria.entidades.Cliente;
-import org.cfg.uapa.java.veterinaria.modelos.ModeloCliente;
+import org.cfg.uapa.java.veterinaria.servicios.ServicioCliente;
 
 /**
  *
@@ -29,7 +29,7 @@ public class ClienteControl extends HttpServlet {
         cliente.setNombre(nombre);
         cliente.setApellido(apellido);
         
-        boolean isCreado = ModeloCliente.getInstancia().crearCliente(cliente);
+        boolean isCreado = ServicioCliente.getInstancia().crearCliente(cliente);
 
         if (isCreado) {
 

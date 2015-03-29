@@ -50,9 +50,8 @@
                         <td></td>
                         <td> <hr><button type="submit" class="btn btn-orange" tabindex="3">Aceptar</button></td>
                     </tr>            
-            </table>  
-            </form>
-
+            </table>                
+            </form>          
         </div>
 
     </center>

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.cfg.uapa.java.veterinaria.modelos;
+package org.cfg.uapa.java.veterinaria.servicios;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,13 +20,13 @@ import org.cfg.uapa.java.veterinaria.entidades.Cliente;
  * 
  * @author EDUARDO
  */
-public class ModeloCliente {
-    private static final ModeloCliente INSTANCIA = new ModeloCliente();
+public class ServicioCliente {
+    private static final ServicioCliente INSTANCIA = new ServicioCliente();
     
-    public static ModeloCliente getInstancia(){
+    public static ServicioCliente getInstancia(){
         return INSTANCIA;
 }
-    private ModeloCliente (){}
+    private ServicioCliente (){}
 
     public List<Cliente> getListadoClientes() {
 
@@ -48,14 +48,14 @@ public class ModeloCliente {
                 Cliente cliente = new Cliente();
                 cliente.setId(rs.getInt("id"));
                 cliente.setNombre(rs.getString("nombre"));
-                cliente.setPais(ModeloPais.getInstancia().getPaisPorId(rs.getInt("pais_id")));
+                cliente.setPais(ServicioPais.getInstancia().getPaisPorId(rs.getInt("pais_id")));
                 Cliente Cliente = null;
 
                 lista.add(Cliente);
             }
 
         } catch (SQLException e) {
-            Logger.getLogger(ModeloCliente.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(ServicioCliente.class.getName()).log(Level.SEVERE, null, e);
         } finally {
             try {
                 if (rs != null) {
@@ -68,7 +68,7 @@ public class ModeloCliente {
                     con.close();
                 }
             } catch (SQLException e) {
-                Logger.getLogger(ModeloCliente.class.getName()).log(Level.SEVERE, null, e);
+                Logger.getLogger(ServicioCliente.class.getName()).log(Level.SEVERE, null, e);
             }
         }
 
@@ -95,13 +95,13 @@ public class ModeloCliente {
 
         } catch (SQLException e) {
             estado = false;
-             Logger.getLogger(ModeloCliente.class.getName()).log(Level.SEVERE, null, e);
+             Logger.getLogger(ServicioCliente.class.getName()).log(Level.SEVERE, null, e);
         }finally{
             if (stmt != null) {
                 try {
                     stmt.close();
                 } catch (SQLException ex) {
-                    Logger.getLogger(ModeloPais.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(ServicioPais.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 }
         }
