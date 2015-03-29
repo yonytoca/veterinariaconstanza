@@ -6,17 +6,17 @@
 <jsp:include page="teplate/header.jsp"/>
 
 <%@page import="org.cfg.uapa.java.veterinaria.entidades.Cita"%>
-<%@page import="org.cfg.uapa.java.veterinaria.modelos.ModeloCita"%>
+<%@page import="org.cfg.uapa.java.veterinaria.servicios.ServicioCita"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
 <%@ page import="java.util.List"%>
-<%@ page import="org.cfg.uapa.java.veterinaria.modelos.ModeloDoctor"%>
+<%@ page import="org.cfg.uapa.java.veterinaria.servicios.ServicioDoctor"%>
 <%@ page import="org.cfg.uapa.java.veterinaria.entidades.Doctor"%>
 
 
 <%
-    List<Cita> Citas = ModeloCita.getInstancia().getListadoCita();
+    List<Cita> Citas = ServicioCita.getInstancia().getListadoCita();
 
 %>
         

@@ -5,7 +5,7 @@
 --%>
 <jsp:include page="teplate/header.jsp"/>
 <%@ page import="java.util.List"%>
-<%@ page import="org.cfg.uapa.java.veterinaria.modelos.ModeloDoctor"%>
+<%@ page import="org.cfg.uapa.java.veterinaria.servicios.ServicioDoctor"%>
 <%@ page import="org.cfg.uapa.java.veterinaria.entidades.Doctor"%>
 
 <%@ page contentType="text/html;charset=UTF-8"%>
@@ -13,7 +13,7 @@
 
         <h1>Crear Doctor</h1>
  <%
-    List<Doctor> Doctor = ModeloDoctor.getInstancia().getListadoDoctores();
+    List<Doctor> Doctor = ServicioDoctor.getInstancia().getListadoDoctores();
 
 %>
  <link rel="stylesheet" href="css/formulariocss.css" />      

@@ -5,7 +5,7 @@
 --%>
 
 <%@page import="java.util.List"%>
-<%@page import="org.cfg.uapa.java.veterinaria.modelos.ModeloCita"%>
+<%@page import="org.cfg.uapa.java.veterinaria.servicios.ServicioCita"%>
 <%@page import="org.cfg.uapa.java.veterinaria.entidades.Cita"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <%
-    List<Cita> citas = ModeloCita.getInstancia().getListadoCita();
+    List<Cita> citas = ServicioCita.getInstancia().getListadoCita();
    
 %>
 <h2 class="sub-header">Citas</h2>
