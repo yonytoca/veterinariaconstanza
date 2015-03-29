@@ -26,7 +26,7 @@
         }
         %>
             <div id="login_panel">
-                <form action="index.jsp" method="post" accept-charset="utf-8">
+                <form action="/veterinariaconstanza/UsuarioControles" method="post" accept-charset="utf-8">
                     <div class="login_fields">
                         <div class="field">
                             <label for="email">Usuario</label>

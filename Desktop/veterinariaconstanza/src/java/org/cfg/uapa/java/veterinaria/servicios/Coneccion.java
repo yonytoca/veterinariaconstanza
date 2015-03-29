@@ -29,15 +29,13 @@ public class Coneccion {
 
     public Connection getConeccion() {
         
-        Context ctx ;
-       
         //Establish connection to MySQL database
        
         Connection con = null;
 
         try {
            
-            ctx = new InitialContext();
+             Context ctx = new InitialContext();
             DataSource ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/PetCare");
             
             con = ds.getConnection();

@@ -49,9 +49,9 @@ public class ServicioCliente {
                 cliente.setId(rs.getInt("id"));
                 cliente.setNombre(rs.getString("nombre"));
                 cliente.setPais(ServicioPais.getInstancia().getPaisPorId(rs.getInt("pais_id")));
-                Cliente Cliente = null;
+               
 
-                lista.add(Cliente);
+                lista.add(cliente);
             }
 
         } catch (SQLException e) {
