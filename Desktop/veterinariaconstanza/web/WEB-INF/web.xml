@@ -9,8 +9,8 @@
         <welcome-file>login.jsp</welcome-file>
     </welcome-file-list> 
     <servlet>
-        <servlet-name>EspecieControl </servlet-name>
-        <servlet-class>org.cfg.uapa.java.veterinaria.controles.EspecieControl</servlet-class>
+        <servlet-name>ClienteControl </servlet-name>
+        <servlet-class>org.cfg.uapa.java.veterinaria.controles.ClienteControl</servlet-class>
     </servlet>
     
     <session-config>

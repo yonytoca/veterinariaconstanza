@@ -34,16 +34,13 @@ public class ServicioCita {
 
         List<Cita> lista = new ArrayList<>();
 
-        String sql = "select * from cita";
-
-        Connection con = Coneccion.getInstancia().getConeccion();
-        Statement stmt = null;
-        ResultSet rs = null;
+        
+        
 
         try {
-
-            stmt = con.createStatement();
-            rs = stmt.executeQuery(sql);
+         Statement stmt = (Statement) Coneccion.getInstancia().getConeccion();
+        ResultSet rs = stmt.executeQuery("select * from cita");
+         
 
             while (rs.next()) {
                
@@ -55,23 +52,11 @@ public class ServicioCita {
                 lista.add(cita);
             }
 
-        } catch (SQLException e) {
-            Logger.getLogger(ServicioCita.class.getName()).log(Level.SEVERE, null, e);
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (stmt != null) {
-                    stmt.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
+       
             } catch (SQLException e) {
                 Logger.getLogger(ServicioCita.class.getName()).log(Level.SEVERE, null, e);
             }
-        }
+        
 
         return lista;
     }

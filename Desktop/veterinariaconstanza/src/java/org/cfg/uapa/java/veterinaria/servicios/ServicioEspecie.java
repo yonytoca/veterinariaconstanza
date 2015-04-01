@@ -26,71 +26,72 @@ public class ServicioEspecie {
         return INSTANCIA;
     }
 
-    public List<Especie> getEspecies() {
+  private ServicioEspecie() {
+    }
+ public List<Especie> getListadoEspecie() {
 
-        List<Especie> especie = new ArrayList<>();
+        List<Especie> lista = new ArrayList<>();
+
+      
 
         try {
-            
-            Statement stmt = Coneccion.getInstancia().getConeccion().createStatement();
-                
-            ResultSet rs = stmt.executeQuery("select * from especie");
+             Statement stmt =(Statement) Coneccion.getInstancia().getConeccion();
+                ResultSet rs= stmt.executeQuery("select * from especie");
+               
+               
+                Especie especie = new Especie();
+                especie.setNombre(rs.getString("nombre")); 
+                lista.add(especie);
+           
+            } catch (SQLException e) {
+                Logger.getLogger(ServicioCita.class.getName()).log(Level.SEVERE, null, e);
+            }
+        
 
-                while (rs.next()) {
-
-                    Especie especies = new Especie();                    
-                    especies.setId(rs.getInt("id"));
-                    especies.setNombre(rs.getNString("nombre"));                
-                    Especie.add(especie);                        
-                    
-                }
-            
-
-        } catch (SQLException e) {
-            System.out.println("Error en el SQl");
-        }
-
-        return especie;
-
+        return lista;
     }
-
-   
     
-     public boolean crearEspecie(Especie especie) {
+        
+    public boolean crearEspecie(Especie especie) {
 
         boolean estado = false;
         PreparedStatement stmt = null ;
-        String sql = "insert into especie(nombre)values(?)";
+        String sql = "insert into especie(nombre) values(?)";
         
          Connection con = Coneccion.getInstancia().getConeccion();
 
         try {
 
-             stmt = con.prepareStatement(sql);            
-             stmt.setString(2,especie.getNombre());     
-        
+            stmt = con.prepareStatement(sql);
+            stmt.setString(1, especie.getNombre());
+          
+            
 
-            stmt.executeUpdate(sql);
+            stmt.executeUpdate();
             
             estado = true;
 
         } catch (SQLException e) {
             estado = false;
-             Logger.getLogger(ServicioCliente.class.getName()).log(Level.SEVERE, null, e);
+             Logger.getLogger(ServicioEspecie.class.getName()).log(Level.SEVERE, null, e);
         }finally{
             if (stmt != null) {
                 try {
                     stmt.close();
                 } catch (SQLException ex) {
-                    Logger.getLogger(ServicioCita.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(ServicioEspecie.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
                 }
-               }
+        }
         
         return estado;
 
     }
-   
-        }
+    
+    
+    
+}
+
+  
+        
 

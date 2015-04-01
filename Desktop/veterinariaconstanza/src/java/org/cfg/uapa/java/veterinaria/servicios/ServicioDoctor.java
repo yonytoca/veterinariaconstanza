@@ -30,55 +30,36 @@ public class ServicioDoctor {
         return INSTANCIA;
         
     }
-     private ServicioDoctor() { }
+     private ServicioDoctor(){
+     }
     
     public List<Doctor> getListadoDoctores() {
 
         List<Doctor> lista = new ArrayList<>();
+      
 
-        String sql = "select * from doctor";
-
-        Connection con = Coneccion.getInstancia().getConeccion();
-        Statement stmt = null;
-        ResultSet rs = null;
-
-        try {
-
-            stmt = con.createStatement();
-            rs = stmt.executeQuery(sql);
+        try { 
+            Statement stmt = Coneccion.getInstancia().getConeccion().createStatement();
+          ResultSet rs = stmt.executeQuery("select * from doctor");
+          
 
             while (rs.next()) {
                
-                Doctor Doctor = new Doctor();
-                Doctor.setNombre(rs.getString("nombre"));           
-                Doctor.setApellido(rs.getString("apellido"));
-               
-
-                lista.add(Doctor);
+                Doctor doc = new Doctor();           
+                doc.setNombre(rs.getString("nombre"));           
+                doc.setApellido(rs.getString("apellido"));
+                lista.add(doc);
             }
 
-        } catch (SQLException e) {
-            Logger.getLogger(ServicioCita.class.getName()).log(Level.SEVERE, null, e);
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (stmt != null) {
-                    stmt.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException e) {
-                Logger.getLogger(ServicioCita.class.getName()).log(Level.SEVERE, null, e);
-            }
+         } catch (SQLException e) {
+            System.out.println("Error en el SQl");
         }
 
         return lista;
+
     }
     
-    public boolean crearDoctor(Doctor Doctor) {
+    public boolean crearDoctor(Doctor doctor) {
 
         boolean estado = false;
         PreparedStatement stmt = null ;
@@ -88,9 +69,11 @@ public class ServicioDoctor {
 
         try {
 
-             stmt = con.prepareStatement(sql);
-             stmt.setString(1, Doctor.getNombre());
-             stmt.setString(2, Doctor.getApellido());         
+            stmt = con.prepareStatement(sql);
+            stmt.setString(1, doctor.getNombre());
+            stmt.setString(2,doctor.getApellido());
+          
+            
 
             stmt.executeUpdate();
             
@@ -98,13 +81,13 @@ public class ServicioDoctor {
 
         } catch (SQLException e) {
             estado = false;
-             Logger.getLogger(ServicioCita.class.getName()).log(Level.SEVERE, null, e);
+             Logger.getLogger(ServicioDoctor.class.getName()).log(Level.SEVERE, null, e);
         }finally{
             if (stmt != null) {
                 try {
                     stmt.close();
                 } catch (SQLException ex) {
-                    Logger.getLogger(ServicioCita.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(ServicioDoctor.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 }
         }
@@ -116,5 +99,8 @@ public class ServicioDoctor {
     
     
 }
+
+  
+    
 
 

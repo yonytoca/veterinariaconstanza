@@ -14,7 +14,7 @@
          <form class="form-horizontal" action="/veterinariaconstanza/EspecieControl" method="post">
      <div class="form-group">
         <label>Especie</label>
-        <input type="text" name="imputnombre" style="width:30%;" id="inputNombre" class="form-control" placeholder="nombre"><br> <br>
+        <input type="text" name="nombre" style="width:30%;" id="inputNombre" class="form-control" placeholder="nombre"><br> <br>
          
     </div>
          <div class="form-group">

@@ -13,7 +13,7 @@
 
         <h1>Crear Doctor</h1>
  <%
-    List<Doctor> Doctor = ServicioDoctor.getInstancia().getListadoDoctores();
+    List<Doctor> doctor = ServicioDoctor.getInstancia().getListadoDoctores();
 
 %>
  <link rel="stylesheet" href="css/formulariocss.css" />      
@@ -24,10 +24,10 @@
          <form class="form-horizontal" action="/veterinariaconstanza/DoctorControl" method="post">
      <div class="form-group">
         <label>Nombre</label>
-        <input type="text" name="inputNombre" style="width:30%;" id="inputNombre" class="form-control" placeholder="nombre"><br> <br>
+        <input type="text" name="nombre" style="width:30%;" id="inputNombre" class="form-control" placeholder="nombre"><br> <br>
          <label>Apellido</label>
-        <input type="text" name="inputapellido" style="width:30%;" id="inputNombre" class="form-control" placeholder="apellido"><br> <br>
-    </div>
+        <input type="text" name="apellido" style="width:30%;" id="inputNombre" class="form-control" placeholder="apellido"><br> <br>
+    </div>       
          <div class="form-group">
         <button type="submit" class="btn btn-default" tabindex="3">Crear</button>
     </div>

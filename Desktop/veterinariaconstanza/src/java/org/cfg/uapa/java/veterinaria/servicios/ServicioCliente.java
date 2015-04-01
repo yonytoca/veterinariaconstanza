@@ -9,10 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.cfg.uapa.java.veterinaria.entidades.Cliente;
@@ -29,38 +26,9 @@ public class ServicioCliente {
         return INSTANCIA;
     }
 
-    public List<Cliente> getListadoCliente() {
-
-        List<Cliente> cliente = new ArrayList<>();
-
-        try {
-            
-            Statement stmt = Coneccion.getInstancia().getConeccion().createStatement();
-                
-            ResultSet rs = stmt.executeQuery("select * from cliente");
-
-                while (rs.next()) {
-
-                    Cliente clientes = new Cliente();                    
-                    clientes.setNombre(rs.getString("nombre"));
-                    clientes.setApellido(rs.getString("telefono"));
-                    clientes.setApellido(rs.getString("calle"));
-                    clientes.setApartamento(rs.getString("apartamento"));
-                    clientes.setCiudad(rs.getString("ciudad")); 
-                    clientes.setApartamento(rs.getString("pais_id"));
-                    clientes.setClave(rs.getString("clave"));
-                    clientes.add(clientes);                        
-                    
-                }
-            
-
-        } catch (SQLException e) {
-            System.out.println("Error en el SQl");
-        }
-
-        return cliente;
-
-    }
+public ServicioCliente(){
+    
+}    
 
     public Cliente checkCliente(String usuario, String clave) {
 
@@ -73,7 +41,7 @@ public class ServicioCliente {
             pstmt.setString(2, clave);
 
             try (ResultSet rs = pstmt.executeQuery()) {
-                System.out.println("Usuario: " + usuario + " clave : " + clave);
+                System.out.println("usuario: " + usuario + " clave : " + clave);
 
                 if (rs.next()) {
 
@@ -139,4 +107,3 @@ public class ServicioCliente {
    
         }
      
-

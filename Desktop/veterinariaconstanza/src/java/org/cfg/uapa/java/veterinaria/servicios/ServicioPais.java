@@ -21,8 +21,7 @@ import org.cfg.uapa.java.veterinaria.entidades.Pais;
  * @author ecabrerar
  */
 public class ServicioPais {
-
-    private static final ServicioPais INSTANCIA = new ServicioPais();
+ private static final ServicioPais INSTANCIA = new ServicioPais();
 
     private ServicioPais() {
     }
@@ -30,7 +29,7 @@ public class ServicioPais {
     public static ServicioPais getInstancia() {
         return INSTANCIA;
     }
-
+ 
     public List<Pais> getListadoPais() {
 
         List<Pais> lista = new ArrayList<>();
@@ -48,7 +47,7 @@ public class ServicioPais {
 
             while (rs.next()) {
                 Pais pais = new Pais();
-                pais.setId(rs.getInt("pais_id"));
+                pais.setId(rs.getInt("id"));
                 pais.setDescripcion(rs.getNString("descripcion"));
                
                 lista.add(pais);
