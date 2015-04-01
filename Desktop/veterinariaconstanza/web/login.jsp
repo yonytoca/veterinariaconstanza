@@ -26,7 +26,8 @@
         }
         %>
             <div id="login_panel">
-                <form action="/veterinariaconstanza/UsuarioControles" method="post" accept-charset="utf-8">
+                <form class="form-vertical login-form" action="/veterinariaconstanza/UsuarioControl" method="post">
+                
                     <div class="login_fields">
                         <div class="field">
                             <label for="email">Usuario</label>
@@ -36,7 +37,7 @@
                         <div class="field">
                             <label for="password">Clave</label>
                              
-                            <input type="password" name="pass" value="" id="password" tabindex="2"/>
+                            <input type="password" name="clave" value="" id="password" tabindex="2"/>
                         </div>
                     </div>
                     <!-- .login_fields -->

@@ -4,48 +4,56 @@
     Author     : EDUARDO
 --%>
 
+<%@page import="org.cfg.uapa.java.veterinaria.servicios.ServicioPais"%>
+<%@page import="java.util.List"%>
+<%@page import="org.cfg.uapa.java.veterinaria.entidades.Pais"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <jsp:include page="teplate/header.jsp"/>
 <link rel="stylesheet" href="css/formulariocss.css" />
-    
+     <%
+        List<Pais> pais = ServicioPais.getInstancia().getListadoPais();
+      %>
           <h3>MANTENIMIENTO DE CLIENTE</h3>
         
         <div id="contenedor">          
-            <form action="" method="post">
+            <form action="/veterinariaconstanza/ClienteControl"  method="post">
                 <table>
 
                     <tr>
                         <td>Nombre:</td>
-                        <td> <input type="text" name="inputNombre" required="" maxlength="5" /> 
+                        <td> <input type="text" name="Nombre" required="" /> 
                         </td> <td>Apellido:</td>
-                        <td> <input type="text" name="inputApellido" required="" /> </td>
+                        <td> <input type="text" name="Apellido" required="" /> </td>
                     </tr>
                     <tr>                        
                         <td>Teléfono:</td>
-                        <td> <input type="text" name="inputTelefono" required="" /> </td>
+                        <td> <input type="text" name="Telefono" required="" /> </td>
                         <td>Calle:</td>
-                        <td> <input type="text" name="inputCalle" required="" /> </td>
+                        <td> <input type="text" name="Calle" required="" /> </td>
                     </tr>
-                    <tr>
-                        <td>Calle:</td>
-                        <td> <input type="text" name="inputCalle" required="" /> </td>
+                    <tr>                     
                          <td>Apartamento:</td>
-                        <td> <input type="text" name="inputApartamento" required="" /> </td>
+                        <td> <input type="text" name="Apartamento" required="" /> </td>                       
+                         <td>País:</td>
+                        <td> <select name="inputPais" class="form-control">
+                            <c:forEach items="<%=pais%>" var="pais">
+                                <option value="${pais.getId()}">${pais.getDescripcion()}</option>
+                            </c:forEach>
+                        </select> </td>
                     </tr>                  
                     <tr>
                         <td>Ciudad:</td>
-                        <td> <input type="text" name="inputCiudad" required="" /> </td>
-                        <td>País:</td>
-                        <td> <input type="text" name="inputPais" required="" /> </td>
+                        <td> <input type="text" name="Ciudad" required="" /> </td>
+                       
                     </tr>                   
                     <tr>  
                         <td>Usuario:</td>
-                        <td> <input type="text" name="inputUsuario" required="" /> </td>
+                        <td> <input type="text" name="Usuario" required="" /> </td>
                     </tr>
                     <tr>
                         <td>Clave:</td>
-                        <td> <input type="password" name="txtcla" required="" /> </td>
+                        <td> <input type="password" name="clave" required="" /> </td>
                     </tr>                               
             </table>  
                <input type="submit" class="styled-button-1" value="Enviar" />

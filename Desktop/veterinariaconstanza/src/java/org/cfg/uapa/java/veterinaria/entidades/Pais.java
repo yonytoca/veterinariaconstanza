@@ -10,8 +10,27 @@ package org.cfg.uapa.java.veterinaria.entidades;
  * @author victor
  */
 public class Pais {
+   
       private int id;
   private String descripcion;
+
+    /**
+     * @return the id
+     */
+  
+    /**
+     * @return the descripcion
+     */
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    /**
+     * @param descripcion the descripcion to set
+     */
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 
     /**
      * @return the id
@@ -28,16 +47,9 @@ public class Pais {
     }
 
     /**
-     * @return the descripcion
+     * @return the pais_id
      */
-    public String getDescripcion() {
-        return descripcion;
-    }
+    
 
-    /**
-     * @param descripcion the descripcion to set
-     */
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
+    
 }

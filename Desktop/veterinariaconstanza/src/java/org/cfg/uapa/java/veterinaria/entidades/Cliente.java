@@ -17,7 +17,7 @@ public class Cliente {
   private String calle;
   private String apartamento;
   private String ciudad;
-  private Pais pais_id ; 
+  private Pais pais_id; ; 
   private String usuario;
   private String clave; 
 
@@ -146,18 +146,26 @@ public class Cliente {
      */
     public void setClave(String clave) {
         this.clave = clave;
+    }   
+
+    public void add(Cliente clientes) {
+        
     }
 
-    public void setPais(Pais paisPorId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    /**
+     * @return the pais_id
+     */
+    public Pais getPais_id() {
+        return pais_id;
     }
 
-    public Object getPais() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    /**
+     * @param pais_id the pais_id to set
+     */
+    public void setPais_id(Pais pais_id) {
+        this.pais_id = pais_id;
     }
 
-    public void setPais(String apellido) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
  
 }

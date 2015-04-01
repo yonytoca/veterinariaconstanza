@@ -19,12 +19,12 @@
  <link rel="stylesheet" href="css/formulariocss.css" />      
 <div id="contenedor">
     
-            <form action="/veterinariaconstanza/CitaControles" method="post">
+           
                 
-         <form class="form-horizontal" action="/veterinariaconstanza/DoctorControles" method="post">
+         <form class="form-horizontal" action="/veterinariaconstanza/DoctorControl" method="post">
      <div class="form-group">
         <label>Nombre</label>
-        <input type="text" name="inputnombre" style="width:30%;" id="inputNombre" class="form-control" placeholder="nombre"><br> <br>
+        <input type="text" name="inputNombre" style="width:30%;" id="inputNombre" class="form-control" placeholder="nombre"><br> <br>
          <label>Apellido</label>
         <input type="text" name="inputapellido" style="width:30%;" id="inputNombre" class="form-control" placeholder="apellido"><br> <br>
     </div>

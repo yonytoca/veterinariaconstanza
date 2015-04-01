@@ -48,9 +48,9 @@ public class ServicioPais {
 
             while (rs.next()) {
                 Pais pais = new Pais();
-                pais.setId(rs.getInt("id"));
-                pais.setDescripcion(rs.getString("descrpcion"));
-
+                pais.setId(rs.getInt("pais_id"));
+                pais.setDescripcion(rs.getNString("descripcion"));
+               
                 lista.add(pais);
             }
 
@@ -93,9 +93,8 @@ public class ServicioPais {
 
             rs.next();
             pais = new Pais();
-            pais.setId(rs.getInt("id"));
-            pais.setDescripcion(rs.getString("nombre"));
-
+            pais.setId(rs.getInt("pais_id"));           
+            pais.setDescripcion(rs.getString("descripcion"));
         } catch (SQLException e) {
             Logger.getLogger(ServicioPais.class.getName()).log(Level.SEVERE, null, e);
         } finally {
@@ -117,3 +116,4 @@ public class ServicioPais {
         return pais;
     }
 }
+

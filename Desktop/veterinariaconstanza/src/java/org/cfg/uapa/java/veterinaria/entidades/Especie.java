@@ -5,11 +5,17 @@
  */
 package org.cfg.uapa.java.veterinaria.entidades;
 
+import java.util.List;
+
 /**
  *
  * @author EDUARDO
  */
 public class Especie {
+
+    public static void add(List<Especie> especie) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
    private int id;
    private String nombre;
 
