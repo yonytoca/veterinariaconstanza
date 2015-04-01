@@ -10,7 +10,7 @@ td, th, .tabla{
 	}
 @media screen and (max-width:720px){
 	table, thead, tr, th, tbody, td{
-		display:block;
+		display:#FF99FF;
 	}
 	
 	thead tr { 

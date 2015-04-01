@@ -127,7 +127,7 @@ public class ServicioCliente {
                 try {
                     stmt.close();
                 } catch (SQLException ex) {
-                    Logger.getLogger(ServicioCita.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(ServicioCliente.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 
                 }

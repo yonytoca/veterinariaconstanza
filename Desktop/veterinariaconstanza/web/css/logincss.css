@@ -63,14 +63,14 @@ body {
 }
 
 #login_panel .field label small a {
-    color: #999;
+    color: red;
 }
 
 #login .login_actions {
     background: #E8E8E8;
     width: auto;
     padding: 15px;
-    border-top: 1px dotted #CCC;
+    border-top: 1px dotted #FF33FF;
 }
 
 

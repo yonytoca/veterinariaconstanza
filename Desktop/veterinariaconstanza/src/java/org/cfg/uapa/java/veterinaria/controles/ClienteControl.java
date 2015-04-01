@@ -11,7 +11,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import org.cfg.uapa.java.veterinaria.entidades.Cliente;
 import org.cfg.uapa.java.veterinaria.entidades.Pais;
 import org.cfg.uapa.java.veterinaria.servicios.ServicioCliente;
@@ -42,7 +41,7 @@ public class ClienteControl extends HttpServlet {
         String usuario = request.getParameter("usuario");
         String clave = request.getParameter("clave");
         
-         Pais pais =  ServicioPais.getInstancia().getPaisPorId(Integer.valueOf(Pais));      
+         Pais pais =  ServicioPais.getInstancia().getPaisPorId(1);      
         
         Cliente cliente = new Cliente();        
         cliente.setNombre(nombre);

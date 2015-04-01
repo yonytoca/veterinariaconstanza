@@ -33,7 +33,7 @@ public class ServicioPais {
 
     public List<Pais> getListadoPais() {
 
-        List<Pais> lista = new ArrayList<Pais>();
+        List<Pais> lista = new ArrayList<>();
 
         String sql = "select * from pais";
 
@@ -93,7 +93,7 @@ public class ServicioPais {
 
             rs.next();
             pais = new Pais();
-            pais.setId(rs.getInt("pais_id"));           
+            pais.setId(rs.getInt("id"));           
             pais.setDescripcion(rs.getString("descripcion"));
         } catch (SQLException e) {
             Logger.getLogger(ServicioPais.class.getName()).log(Level.SEVERE, null, e);
