@@ -23,7 +23,7 @@
          <table class="table table-striped">
     <tr><th>#</th><th>pais</th></tr>    
             <c:forEach items="<%=pais%>" var="pais">
-        <tr><td>${pais.getId()}</td><td>${pais.getNombre()}</td></tr>
+        <tr><td>${pais.getId()}</td><td>${pais.getDescripcion()}</td></tr>
 
     </c:forEach>
 </table>

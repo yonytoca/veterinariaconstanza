@@ -33,11 +33,11 @@ public class ClienteControl  extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+        throws ServletException, IOException {
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
         String telefono = request.getParameter("telefono");
-         String calle = request.getParameter("calle");
+        String calle = request.getParameter("calle");
         String apartamento = request.getParameter("apartamento");
         String ciudad = request.getParameter("ciudad");       
         String Pais = request.getParameter("inputPais");       

@@ -19,13 +19,18 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.cfg.uapa.java.veterinaria.entidades.Cita;
-public class ServicioCita {
-    
+import org.cfg.uapa.java.veterinaria.entidades.Doctor;
 
-    private static final ServicioCita INSTANCIA = new ServicioCita();
+public class ServicioCita {    
+
+    private static ServicioCita INSTANCIA = null;
     
     public static ServicioCita getInstancia(){
-        return INSTANCIA;
+       
+         if (INSTANCIA == null) {
+            INSTANCIA = new ServicioCita();
+          }
+          return INSTANCIA;
         
     }
      private ServicioCita() { }
@@ -33,21 +38,18 @@ public class ServicioCita {
     public List<Cita> getListadoCita() {
 
         List<Cita> lista = new ArrayList<>();
-
-        
-        
+       
 
         try {
          Statement stmt = (Statement) Coneccion.getInstancia().getConeccion();
-        ResultSet rs = stmt.executeQuery("select * from cita");
-         
+        ResultSet rs = stmt.executeQuery("select * from cita");         
 
-            while (rs.next()) {
-               
+            while (rs.next()) {               
                 Cita cita = new Cita();
-                cita.setId(rs.getInt("codigo_cita"));
+                cita.setId(rs.getInt("id"));
                 cita.setFecha(rs.getString("fecha"));
-               
+                cita.setPaciente_id(rs.getInt("paciente_id");
+                cita.setDoctor_id(rs.getInt("doctor_id");
 
                 lista.add(cita);
             }
@@ -61,11 +63,11 @@ public class ServicioCita {
         return lista;
     }
     
-    public boolean crearCiudad(Cita cita) {
+    public boolean crearCita(Cita cita) {
 
         boolean estado = false;
         PreparedStatement stmt = null ;
-        String sql = "insert into ciudades(nombre,codigo_pais) values(?,?)";
+        String sql = "insert into cita(fecha,paciente_id,doctor_id,razon) values(?,?,?,?)";
         
          Connection con = Coneccion.getInstancia().getConeccion();
 
@@ -73,7 +75,9 @@ public class ServicioCita {
 
              stmt = con.prepareStatement(sql);
              stmt.setString(1, cita.getFecha());
-             stmt.setInt(2, cita.getDoctor_id().getId());
+             stmt.setInt(2, cita.getPaciente_id());
+             stmt.setInt(3, cita.getDoctor_id());
+             stmt.setString(4, cita.getRazon());
 
             stmt.executeUpdate();
             
@@ -95,5 +99,49 @@ public class ServicioCita {
         return estado;
 
     }   
+    
+        public Doctor getDoctorPorId(int id) {
+
+        String sql = "select * from doctor where id=?";
+
+        Connection con = Coneccion.getInstancia().getConeccion();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Doctor doctor = null;
+
+        try {
+
+            stmt = con.prepareStatement(sql);
+            stmt.setInt(1, id);
+
+            rs = stmt.executeQuery();
+
+            rs.next();
+            doctor = new Doctor();
+            doctor.setId(rs.getInt("id"));           
+            doctor.setNombre(rs.getString("nombre"));
+            doctor.setApellido(rs.getString("apellido"));
+            
+        } catch (SQLException e) {
+            Logger.getLogger(ServicioCita.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException e) {
+                Logger.getLogger(ServicioCita.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+
+        return Cita;
+    }
+
      
 }
