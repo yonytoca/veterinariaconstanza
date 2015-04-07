@@ -43,7 +43,7 @@ public class ServicioPaciente {
                     pacientes.setCliente_id(ServicioCliente.getInstancia().getClientePorId(rs.getInt("cliente_id")));                  
                     pacientes.setNombre(rs.getString("nombre"));
                     pacientes.setGenero(rs.getString("genero"));
-                    pacientes.setRaza_id(ServicioRaza.getInstancia().getRazaPorId(rs.getInt("raza_id")));
+                    pacientes.setRaza_id(ServicioRaza.getInstancia().getRazaporId(rs.getInt("raza_id")));
                     pacientes.setFecha_nacimiento(rs.getString("fecha_nacimiento"));
                     pacientes.setPeso(rs.getString("peso"));
                     pacientes.setDoctor_id(ServicioDoctor.getInstancia().getDoctorPorId(rs.getInt("doctor_id")));

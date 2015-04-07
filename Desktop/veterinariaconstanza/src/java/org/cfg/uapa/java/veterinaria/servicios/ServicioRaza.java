@@ -53,6 +53,43 @@ public class ServicioRaza {
 
         return Listaraza;
     }
+    public Raza getRazaporId(int id){
+    String sql = "select * from raza where id=?";
+    Connection con = Coneccion.getInstancia().getConeccion();
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+    Raza raza = null;
+    try{
+    stmt = con.prepareStatement(sql);
+            stmt.setInt(1, id);
+
+            rs = stmt.executeQuery();
+            rs.next();
+            raza = new Raza();
+            raza.setId(rs.getInt("id"));           
+            raza.setNombre(rs.getString("nombre"));
+        } catch (SQLException e) {
+            Logger.getLogger(ServicioRaza.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException e) {
+                Logger.getLogger(ServicioRaza.class.getName()).log(Level.SEVERE, null, e);
+            }
+        
+
+        return raza;
+    }
+    }
+
     
     
     public boolean crearRaza(Raza raza) {

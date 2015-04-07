@@ -13,7 +13,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.cfg.uapa.java.veterinaria.entidades.Cita;
+import org.cfg.uapa.java.veterinaria.entidades.Doctor;
+import org.cfg.uapa.java.veterinaria.entidades.Paciente;
 import org.cfg.uapa.java.veterinaria.servicios.ServicioCita;
+import org.cfg.uapa.java.veterinaria.servicios.ServicioDoctor;
+import org.cfg.uapa.java.veterinaria.servicios.ServicioPaciente;
 
 /**
  *
@@ -35,12 +39,12 @@ public class CitaControl extends HttpServlet {
             throws ServletException, IOException {
         
         String fecha = request.getParameter("fecha");
-        String paciente = request.getParameter("paciente");
+        String pacientes = request.getParameter("paciente");
         String razon = request.getParameter("razon");
-        String doctor = request.getParameter("doctor");
+        String doctore = request.getParameter("doctor");
         
-        
-        Cita cita =  ServicioCita.getInstancia().getCitaPorId(Integer.valueOf(Cita));
+        Paciente paciente = ServicioPaciente.getInstancia().getPacientePorId(Integer.valueOf(pacientes));
+        Doctor doctor = ServicioDoctor.getInstancia().getDoctorPorId(Integer.valueOf(doctore));
         
         Cita cita = new Cita();
         cita.setFecha(fecha);
