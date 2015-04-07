@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.cfg.uapa.java.veterinaria.entidades.Doctor;
 import org.cfg.uapa.java.veterinaria.entidades.Paciente;
 
 /**
@@ -38,14 +39,15 @@ public class ServicioPaciente {
 
                 while (rs.next()) {
                     Paciente pacientes = new Paciente();
-                    pacientes.setId(rs.getInt("id"));
-                    pacientes.setCliente_id(rs.getInt("cliente_id"));
+                    pacientes.setId(rs.getInt("id"));                   
+                    pacientes.setCliente_id(ServicioCliente.getInstancia().getClientePorId(rs.getInt("cliente_id")));                  
                     pacientes.setNombre(rs.getString("nombre"));
                     pacientes.setGenero(rs.getString("genero"));
-                    pacientes.setRaza_id(rs.getInt("raza_id"));
+                    pacientes.setRaza_id(ServicioRaza.getInstancia().getRazaPorId(rs.getInt("raza_id")));
                     pacientes.setFecha_nacimiento(rs.getString("fecha_nacimiento"));
                     pacientes.setPeso(rs.getString("peso"));
-                    pacientes.setDoctor_id(rs.getInt("doctor_id"));
+                    pacientes.setDoctor_id(ServicioDoctor.getInstancia().getDoctorPorId(rs.getInt("doctor_id")));
+                   // pacientes.setDoctor_id(rs.getInt("doctor_id"));
                     Listapaciente.add(pacientes);
                  }
             }
@@ -110,14 +112,14 @@ public class ServicioPaciente {
         try {
 
              stmt = con.prepareStatement(sql);
-             stmt.setInt(1,paciente.getCliente_id());
+             stmt.setInt(1,paciente.getCliente_id().getId());
              stmt.setString(2, paciente.getNombre());
              stmt.setString(3,paciente.getGenero());
-             stmt.setInt(4,paciente.getRaza_id());
-             stmt.setString(5,paciente.getFecha_nacimiento());
-             stmt.setInt(6,paciente.getPeso());
-             stmt.setInt(7,paciente.getDoctor_id());
-        
+             stmt.setInt(4,paciente.getRaza_id().getId());
+             stmt.setString(5,paciente.getFecha_nacimiento());            
+             stmt.setString(6,paciente.getPeso());
+             stmt.setInt(7,paciente.getDoctor_id().getId());
+            
 
             stmt.executeUpdate();
             

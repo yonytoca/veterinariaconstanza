@@ -75,8 +75,8 @@ public class ServicioCita {
 
              stmt = con.prepareStatement(sql);
              stmt.setString(1, cita.getFecha());
-             stmt.setInt(2, cita.getPaciente_id());
-             stmt.setInt(3, cita.getDoctor_id());
+             stmt.setInt(2, cita.getPaciente_id().getId());
+             stmt.setInt(3, cita.getDoctor_id().getId());
              stmt.setString(4, cita.getRazon());
 
             stmt.executeUpdate();
@@ -100,48 +100,7 @@ public class ServicioCita {
 
     }   
     
-        public Doctor getDoctorPorId(int id) {
-
-        String sql = "select * from doctor where id=?";
-
-        Connection con = Coneccion.getInstancia().getConeccion();
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        Doctor doctor = null;
-
-        try {
-
-            stmt = con.prepareStatement(sql);
-            stmt.setInt(1, id);
-
-            rs = stmt.executeQuery();
-
-            rs.next();
-            doctor = new Doctor();
-            doctor.setId(rs.getInt("id"));           
-            doctor.setNombre(rs.getString("nombre"));
-            doctor.setApellido(rs.getString("apellido"));
-            
-        } catch (SQLException e) {
-            Logger.getLogger(ServicioCita.class.getName()).log(Level.SEVERE, null, e);
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (stmt != null) {
-                    stmt.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException e) {
-                Logger.getLogger(ServicioCita.class.getName()).log(Level.SEVERE, null, e);
-            }
-        }
-
-        return Cita;
-    }
+     
 
      
 }

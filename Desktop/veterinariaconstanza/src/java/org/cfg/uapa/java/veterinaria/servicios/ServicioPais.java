@@ -38,7 +38,7 @@ public class ServicioPais {
             try (ResultSet rs = stmt.executeQuery()) {
 
                 while (rs.next()) {
-                    Pais pais = new Pais();
+                    Pais pais = new Pais();                    
                     pais.setId(rs.getInt(1));
                     pais.setDescripcion(rs.getString(2));
 

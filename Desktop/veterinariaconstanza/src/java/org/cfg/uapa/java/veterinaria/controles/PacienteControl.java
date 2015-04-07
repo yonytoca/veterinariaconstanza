@@ -13,8 +13,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.cfg.uapa.java.veterinaria.entidades.Cliente;
+import org.cfg.uapa.java.veterinaria.entidades.Doctor;
 import org.cfg.uapa.java.veterinaria.entidades.Paciente;
 import org.cfg.uapa.java.veterinaria.servicios.ServicioCliente;
+import org.cfg.uapa.java.veterinaria.servicios.ServicioDoctor;
 
 /**
  *
@@ -40,12 +42,12 @@ public class PacienteControl extends HttpServlet {
          String raza = request.getParameter("inputraza");
         String fnacimiento = request.getParameter("fechanacimiento");
         String peso = request.getParameter("peso");       
-        String doctor = request.getParameter("inputdoctor");       
+        String doc = request.getParameter("inputdoctor");       
        
         
         
         Cliente cliente = ServicioCliente.getInstancia().getClientePorId(Integer.valueOf(clientes));
-        
+        Doctor doctor = ServicioDoctor.getInstancia().getDoctorPorId(Integer.valueOf(doc));
         
         Paciente paciente = new Paciente();
         paciente.setCliente_id(cliente);

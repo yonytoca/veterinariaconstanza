@@ -45,7 +45,8 @@ public class ServicioDoctor {
 
             while (rs.next()) {
                
-                Doctor doc = new Doctor();           
+                Doctor doc = new Doctor();  
+                doc.setId(rs.getInt("id"));
                 doc.setNombre(rs.getString("nombre"));           
                 doc.setApellido(rs.getString("apellido"));
                 lista.add(doc);
@@ -57,6 +58,47 @@ public class ServicioDoctor {
 
         return lista;
 
+    }
+    
+     public Doctor getDoctorPorId(int id) {
+
+        String sql = "select * from doctor where id=?";
+
+        Connection con = Coneccion.getInstancia().getConeccion();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Doctor doctor = null;
+
+        try {
+
+            stmt = con.prepareStatement(sql);
+            stmt.setInt(1, id);
+
+            rs = stmt.executeQuery();
+
+            rs.next();
+            doctor = new Doctor();
+            doctor.setId(rs.getInt("id"));           
+            doctor.setNombre(rs.getString("nombre"));
+        } catch (SQLException e) {
+            Logger.getLogger(ServicioDoctor.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException e) {
+                Logger.getLogger(ServicioDoctor.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+
+        return doctor;
     }
     
     public boolean crearDoctor(Doctor doctor) {

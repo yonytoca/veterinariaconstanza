@@ -45,8 +45,7 @@ public class ServicioCliente {
                     Cliente cliente = new Cliente();
                     cliente.setId(rs.getInt("id"));
                     cliente.setNombre(rs.getString("nombre"));
-                    cliente.setApellido(rs.getString("apellido"));  
-                    
+                    cliente.setApellido(rs.getString("apellido"));                     
                     Listacliente.add(cliente);
                  }
             }
@@ -87,46 +86,7 @@ public class ServicioCliente {
 
         return usuario1;
     }
- public Paciente getPacientePorId(int id) {
 
-        String sql = "select * from paciente where id=?";
-
-        Connection con = Coneccion.getInstancia().getConeccion();
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        Paciente paciente = null;
-
-        try {
-
-            stmt = con.prepareStatement(sql);
-            stmt.setInt(1, id);
-
-            rs = stmt.executeQuery();
-
-            rs.next();
-            paciente = new Paciente();
-            paciente.setId(rs.getInt("id"));           
-            paciente.setNombre(rs.getString("nombre"));
-        } catch (SQLException e) {
-            Logger.getLogger(ServicioPais.class.getName()).log(Level.SEVERE, null, e);
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (stmt != null) {
-                    stmt.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException e) {
-                Logger.getLogger(ServicioPais.class.getName()).log(Level.SEVERE, null, e);
-            }
-        }
-
-        return paciente;
-    } 
       
       public Cliente getClientePorId(int id) {
 
