@@ -35,13 +35,14 @@ public class ServicioEspecie {
       
 
         try {
-             Statement stmt =(Statement) Coneccion.getInstancia().getConeccion();
+             Statement stmt =Coneccion.getInstancia().getConeccion().createStatement();
                 ResultSet rs= stmt.executeQuery("select * from especie");
                
                
-                Especie especie = new Especie();
-                especie.setNombre(rs.getString("nombre")); 
-                lista.add(especie);
+                Especie especies = new Especie();
+                especies.setId(rs.getInt("id"));
+                especies.setNombre(rs.getString("nombre")); 
+                lista.add(especies);
            
             } catch (SQLException e) {
                 Logger.getLogger(ServicioCita.class.getName()).log(Level.SEVERE, null, e);

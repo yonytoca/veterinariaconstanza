@@ -11,10 +11,11 @@
 <!DOCTYPE html>
 <jsp:include page="teplate/header.jsp"/>
 <link rel="stylesheet" href="css/formulariocss.css" />
-     <%
-        List<Pais> listapais = ServicioPais.getInstancia().getListadoPais();
-      %>
-          <h3>MANTENIMIENTO DE CLIENTE</h3>
+ <%
+   List<Pais> pais = ServicioPais.getInstancia().getListadoPais();
+
+%>
+         <h3>MANTENIMIENTO DE CLIENTE</h3>
         
         <div id="contenedor">          
             <form action="/veterinariaconstanza/ClienteControl"  method="post">
@@ -36,13 +37,12 @@
                          <td>Apartamento:</td>
                         <td> <input type="text" name="apartamento" required="" /> </td>                       
                          <td>País:</td>
-                        <td>
-                          <input type="text" name="pais" required="" />
-                          <select name="inputPais">
-            <c:forEach items="<%=listapais%>" var="pais">
-                <option value="${pais.getId()}">${pais.getNombre()}</option>
-            </c:forEach>
-        </select>
+                        <td>                         
+                   <select name="inputPais">
+                         <c:forEach items="<%=pais%>" var="pais">
+                         <option value="${pais.getId()}">${pais.getDescripcion()}</option>
+                         </c:forEach>
+                  </select>
                         </td>
                     </tr>                  
                     <tr>

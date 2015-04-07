@@ -21,58 +21,39 @@ import org.cfg.uapa.java.veterinaria.entidades.Pais;
  * @author ecabrerar
  */
 public class ServicioPais {
- private static final ServicioPais INSTANCIA = new ServicioPais();
-
-    private ServicioPais() {
-    }
+    private static ServicioPais INSTANCIA = null;
 
     public static ServicioPais getInstancia() {
+        if (INSTANCIA == null) {
+            INSTANCIA = new ServicioPais();
+        }
         return INSTANCIA;
     }
- 
-    public List<Pais> getListadoPais() {
 
-        List<Pais> lista = new ArrayList<>();
+    public List<Pais> getListadoPais() throws SQLException {
 
-        String sql = "select * from pais";
+       List<Pais> Listapais = new ArrayList<>();
 
-        Connection con = Coneccion.getInstancia().getConeccion();
-        Statement stmt = null;
-        ResultSet rs = null;
+        try (PreparedStatement stmt = Coneccion.getInstancia().getConeccion().prepareStatement("select * from pais")) {
+            try (ResultSet rs = stmt.executeQuery()) {
 
-        try {
+                while (rs.next()) {
+                    Pais pais = new Pais();
+                    pais.setId(rs.getInt(1));
+                    pais.setDescripcion(rs.getString(2));
 
-            stmt = con.createStatement();
-            rs = stmt.executeQuery(sql);
-
-            while (rs.next()) {
-                Pais pais = new Pais();
-                pais.setId(rs.getInt("id"));
-                pais.setDescripcion(rs.getNString("descripcion"));
-               
-                lista.add(pais);
+                    Listapais.add(pais);
+                 }
             }
 
-        } catch (SQLException e) {
-            Logger.getLogger(ServicioPais.class.getName()).log(Level.SEVERE, null, e);
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (stmt != null) {
-                    stmt.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException e) {
-                Logger.getLogger(ServicioPais.class.getName()).log(Level.SEVERE, null, e);
-            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicioPais.class.getName()).log(Level.SEVERE, null, ex);          
         }
 
-        return lista;
+        return Listapais;
     }
+
+
 
     public Pais getPaisPorId(int id) {
 

@@ -40,7 +40,7 @@ public class ClienteControl  extends HttpServlet {
          String calle = request.getParameter("calle");
         String apartamento = request.getParameter("apartamento");
         String ciudad = request.getParameter("ciudad");       
-        String Pais = request.getParameter("pais");       
+        String Pais = request.getParameter("inputPais");       
         String usuario = request.getParameter("usuario");
         String clave = request.getParameter("clave");
         

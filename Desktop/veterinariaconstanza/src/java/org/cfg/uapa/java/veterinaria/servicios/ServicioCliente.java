@@ -9,7 +9,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.cfg.uapa.java.veterinaria.entidades.Cliente;
@@ -20,16 +23,39 @@ import org.cfg.uapa.java.veterinaria.entidades.Cliente;
  */
 public class ServicioCliente {      
        
-      private static final ServicioCliente INSTANCIA = new ServicioCliente();
-    
-    public static ServicioCliente getInstancia(){
+         private static ServicioCliente INSTANCIA = null;
+
+    public static ServicioCliente getInstancia() {
+        if (INSTANCIA == null) {
+            INSTANCIA = new ServicioCliente();
+        }
         return INSTANCIA;
     }
 
-public ServicioCliente(){
-    
-}    
+    public List<Cliente> getListadoCliente() throws SQLException {
 
+       List<Cliente> Listacliente = new ArrayList<>();
+
+        try (PreparedStatement stmt = Coneccion.getInstancia().getConeccion().prepareStatement("select * from cliente")) 
+        {
+            try (ResultSet rs = stmt.executeQuery()) {
+
+                while (rs.next()) {
+                    Cliente cliente = new Cliente();
+                    cliente.setId(rs.getInt("id"));
+                    cliente.setNombre(rs.getString("nombre"));
+                    cliente.setApellido(rs.getString("apellido"));                    
+                    Listacliente.add(cliente);
+                 }
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicioPais.class.getName()).log(Level.SEVERE, null, ex);          
+        }
+
+        return Listacliente;
+    }
+    
     public Cliente checkCliente(String usuario, String clave) {
 
         Connection con = Coneccion.getInstancia().getConeccion();
