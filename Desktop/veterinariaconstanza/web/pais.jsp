@@ -14,12 +14,7 @@
 
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
+
          <table class="table table-striped">
     <tr><th>#</th><th>pais</th></tr>    
             <c:forEach items="<%=pais%>" var="pais">
@@ -29,6 +24,3 @@
 </table>
          <p>Tiene <%=pais.size()%> paises</p>
       
-   
-    </body>
-</html>

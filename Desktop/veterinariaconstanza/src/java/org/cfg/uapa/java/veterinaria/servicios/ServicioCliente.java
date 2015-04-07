@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.cfg.uapa.java.veterinaria.entidades.Cliente;
+import org.cfg.uapa.java.veterinaria.entidades.Paciente;
 
 /**
  *
@@ -44,7 +45,8 @@ public class ServicioCliente {
                     Cliente cliente = new Cliente();
                     cliente.setId(rs.getInt("id"));
                     cliente.setNombre(rs.getString("nombre"));
-                    cliente.setApellido(rs.getString("apellido"));                    
+                    cliente.setApellido(rs.getString("apellido"));  
+                    
                     Listacliente.add(cliente);
                  }
             }
@@ -85,7 +87,88 @@ public class ServicioCliente {
 
         return usuario1;
     }
+ public Paciente getPacientePorId(int id) {
 
+        String sql = "select * from paciente where id=?";
+
+        Connection con = Coneccion.getInstancia().getConeccion();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Paciente paciente = null;
+
+        try {
+
+            stmt = con.prepareStatement(sql);
+            stmt.setInt(1, id);
+
+            rs = stmt.executeQuery();
+
+            rs.next();
+            paciente = new Paciente();
+            paciente.setId(rs.getInt("id"));           
+            paciente.setNombre(rs.getString("nombre"));
+        } catch (SQLException e) {
+            Logger.getLogger(ServicioPais.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException e) {
+                Logger.getLogger(ServicioPais.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+
+        return paciente;
+    } 
+      
+      public Cliente getClientePorId(int id) {
+
+        String sql = "select * from cliente where id=?";
+
+        Connection con = Coneccion.getInstancia().getConeccion();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Cliente cliente = null;
+
+        try {
+
+            stmt = con.prepareStatement(sql);
+            stmt.setInt(1, id);
+
+            rs = stmt.executeQuery();
+
+            rs.next();
+            cliente = new Cliente();
+            cliente.setId(rs.getInt("id"));           
+            cliente.setNombre(rs.getString("nombre"));
+        } catch (SQLException e) {
+            Logger.getLogger(ServicioCliente.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException e) {
+                Logger.getLogger(ServicioCliente.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+
+        return cliente;
+    }
+      
      public boolean crearCliente(Cliente  cliente) {
 
         boolean estado = false;

@@ -16,7 +16,7 @@ public class Paciente {
   private String genero;
   private Raza raza_id;
   private String fecha_nacimiento;
-  private int peso;
+  private String peso;
   private Doctor doctor_id;
 
     /**
@@ -103,20 +103,7 @@ public class Paciente {
         this.fecha_nacimiento = fecha_nacimiento;
     }
 
-    /**
-     * @return the peso
-     */
-    public int getPeso() {
-        return peso;
-    }
-
-    /**
-     * @param peso the peso to set
-     */
-    public void setPeso(int peso) {
-        this.peso = peso;
-    }
-
+ 
     /**
      * @return the doctor_id
      */
@@ -129,6 +116,20 @@ public class Paciente {
      */
     public void setDoctor_id(Doctor doctor_id) {
         this.doctor_id = doctor_id;
+    }
+
+    /**
+     * @return the peso
+     */
+    public String getPeso() {
+        return peso;
+    }
+
+    /**
+     * @param peso the peso to set
+     */
+    public void setPeso(String peso) {
+        this.peso = peso;
     }
     
 }
