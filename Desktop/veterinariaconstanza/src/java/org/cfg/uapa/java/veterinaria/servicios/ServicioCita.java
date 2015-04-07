@@ -48,9 +48,9 @@ public class ServicioCita {
                 Cita cita = new Cita();
                 cita.setId(rs.getInt("id"));
                 cita.setFecha(rs.getString("fecha"));
-                cita.setPaciente_id(rs.getInt("paciente_id");
-                cita.setDoctor_id(rs.getInt("doctor_id");
-
+                cita.setPaciente_id(ServicioPaciente.getInstancia().getPacientePorId(rs.getInt("paciente_id")));
+                cita.setDoctor_id(ServicioDoctor.getInstancia().getDoctorPorId(rs.getInt("doctor_id")));
+                
                 lista.add(cita);
             }
 

@@ -3,6 +3,7 @@
     Created on : 24-mar-2015, 2:29:19
     Author     : EDUARDO
 --%>
+<%@page import="org.cfg.uapa.java.veterinaria.servicios.ServicioPaciente"%>
 <%@page import="org.cfg.uapa.java.veterinaria.entidades.Paciente"%>
 <jsp:include page="teplate/header.jsp"/>
 

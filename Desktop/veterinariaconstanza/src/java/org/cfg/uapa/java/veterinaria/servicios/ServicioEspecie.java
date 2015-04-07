@@ -37,8 +37,7 @@ public class ServicioEspecie {
         try {
              Statement stmt =Coneccion.getInstancia().getConeccion().createStatement();
                 ResultSet rs= stmt.executeQuery("select * from especie");
-               
-               
+                          
                 Especie especies = new Especie();
                 especies.setId(rs.getInt("id"));
                 especies.setNombre(rs.getString("nombre")); 
@@ -91,6 +90,48 @@ public class ServicioEspecie {
     
     
     
+     public Especie getEspeciePorId(int id) {
+
+        String sql = "select * from especie where id=?";
+
+        Connection con = Coneccion.getInstancia().getConeccion();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Especie especie = null;
+
+        try {
+
+            stmt = con.prepareStatement(sql);
+            stmt.setInt(1, id);
+
+            rs = stmt.executeQuery();
+
+            rs.next();
+            especie = new Especie();
+            especie.setId(rs.getInt("id"));           
+            especie.setNombre(rs.getString("nombre"));
+           
+        } catch (SQLException e) {
+            Logger.getLogger(ServicioEspecie.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException e) {
+                Logger.getLogger(ServicioEspecie.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+
+        return especie;
+
+     }
 }
 
   
