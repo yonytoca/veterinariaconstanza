@@ -20,12 +20,12 @@ import org.cfg.uapa.java.veterinaria.entidades.Raza;
  * @author EDUARDO
  */
 public class ServicioRaza {
-    private static ServicioRaza INSTANCIA = null;
+     private static final ServicioRaza INSTANCIA = new ServicioRaza();
+
+    private ServicioRaza() {
+    }
 
     public static ServicioRaza getInstancia() {
-        if (INSTANCIA == null) {
-            INSTANCIA = new ServicioRaza();
-        }
         return INSTANCIA;
     }
 
@@ -53,6 +53,8 @@ public class ServicioRaza {
 
         return Listaraza;
     }
+    
+    
     public Raza getRazaporId(int id){
     String sql = "select * from raza where id=?";
     Connection con = Coneccion.getInstancia().getConeccion();

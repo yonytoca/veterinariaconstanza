@@ -21,16 +21,17 @@ import org.cfg.uapa.java.veterinaria.entidades.Pais;
  * @author ecabrerar
  */
 public class ServicioPais {
-    private static ServicioPais INSTANCIA = null;
+       private static final ServicioPais INSTANCIA = new ServicioPais();
+
+    private ServicioPais() {
+    }
 
     public static ServicioPais getInstancia() {
-        if (INSTANCIA == null) {
-            INSTANCIA = new ServicioPais();
-        }
         return INSTANCIA;
     }
 
-    public List<Pais> getListadoPais() throws SQLException {
+
+    public List<Pais> getListadoPais(){
 
        List<Pais> Listapais = new ArrayList<>();
 
@@ -41,7 +42,6 @@ public class ServicioPais {
                     Pais pais = new Pais();                    
                     pais.setId(rs.getInt(1));
                     pais.setDescripcion(rs.getString(2));
-
                     Listapais.add(pais);
                  }
             }

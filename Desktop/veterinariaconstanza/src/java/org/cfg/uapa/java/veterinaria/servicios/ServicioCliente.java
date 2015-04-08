@@ -9,14 +9,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.cfg.uapa.java.veterinaria.entidades.Cliente;
-import org.cfg.uapa.java.veterinaria.entidades.Paciente;
 
 /**
  *
@@ -45,17 +43,23 @@ public class ServicioCliente {
                     Cliente cliente = new Cliente();
                     cliente.setId(rs.getInt("id"));
                     cliente.setNombre(rs.getString("nombre"));
-                    cliente.setApellido(rs.getString("apellido"));                     
+                    cliente.setApellido(rs.getString("apellido")); 
+                    cliente.setTelefono(rs.getString("telefono"));
+                    cliente.setCalle(rs.getString("calle"));
+                    cliente.setApartamento(rs.getString("apartamento"));
+                    cliente.setCiudad(rs.getString("ciudad"));
+                    cliente.setPais_id(ServicioPais.getInstancia().getPaisPorId(rs.getInt("pais_id")));                    
                     Listacliente.add(cliente);
                  }
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ServicioPais.class.getName()).log(Level.SEVERE, null, ex);          
+            Logger.getLogger(ServicioCliente.class.getName()).log(Level.SEVERE, null, ex);          
         }
 
         return Listacliente;
     }
+    
     
     public Cliente checkCliente(String usuario, String clave) {
 
