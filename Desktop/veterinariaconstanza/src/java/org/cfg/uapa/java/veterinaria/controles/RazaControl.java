@@ -6,7 +6,6 @@
 package org.cfg.uapa.java.veterinaria.controles;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,9 +36,10 @@ public class RazaControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
                     String nombre = request.getParameter("nombre");
-                    String especies = request.getParameter("especie");
+                    String especies = request.getParameter("inputespecie");
                     
       Especie especie = ServicioEspecie.getInstancia().getEspeciePorId(Integer.valueOf(especies));
+      
         Raza raza = new Raza();
         raza.setNombre(nombre);
         raza.setEspecie_id(especie);

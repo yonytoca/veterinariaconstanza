@@ -21,37 +21,39 @@ import org.cfg.uapa.java.veterinaria.entidades.Especie;
  * @author victor
  */
 public class ServicioEspecie {
-        private static final ServicioEspecie INSTANCIA = new ServicioEspecie();    
-     public static ServicioEspecie getInstancia(){
+            private static final ServicioEspecie INSTANCIA = new ServicioEspecie();
+
+    private ServicioEspecie() {
+    }
+
+    public static ServicioEspecie getInstancia() {
         return INSTANCIA;
     }
 
-  private ServicioEspecie() {
-    }
- public List<Especie> getListadoEspecie() {
+    public List<Especie> getListadoEspecie()  {
 
-        List<Especie> lista = new ArrayList<>();
+       List<Especie> ListaEspecie = new ArrayList<>();
 
-      
+        try (PreparedStatement stmt = Coneccion.getInstancia().getConeccion().prepareStatement("select * from especie")) 
+        {
+            try (ResultSet rs = stmt.executeQuery()) {
 
-        try {
-             Statement stmt =Coneccion.getInstancia().getConeccion().createStatement();
-                ResultSet rs= stmt.executeQuery("select * from especie");
-                          
-                Especie especies = new Especie();
-                especies.setId(rs.getInt("id"));
-                especies.setNombre(rs.getString("nombre")); 
-                lista.add(especies);
-           
-            } catch (SQLException e) {
-                Logger.getLogger(ServicioCita.class.getName()).log(Level.SEVERE, null, e);
+                while (rs.next()) {
+                    Especie espec = new Especie();
+                    espec.setId(rs.getInt("id"));                    
+                    espec.setNombre(rs.getString("nombre"));                        
+                    ListaEspecie.add(espec);
+                 }
             }
-        
 
-        return lista;
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicioEspecie.class.getName()).log(Level.SEVERE, null, ex);          
+        }
+
+        return ListaEspecie;
     }
     
-        
+    
     public boolean crearEspecie(Especie especie) {
 
         boolean estado = false;

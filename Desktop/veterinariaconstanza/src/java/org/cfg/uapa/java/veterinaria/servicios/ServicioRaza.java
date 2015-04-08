@@ -29,7 +29,7 @@ public class ServicioRaza {
         return INSTANCIA;
     }
 
-    public List<Raza> getListadoRaza() throws SQLException {
+    public List<Raza> getListadoRaza()  {
 
        List<Raza> Listaraza = new ArrayList<>();
 
@@ -39,10 +39,9 @@ public class ServicioRaza {
 
                 while (rs.next()) {
                     Raza raza = new Raza();
-                    raza.setId(rs.getInt("id"));
+                    raza.setId(rs.getInt("id"));                    
                     raza.setNombre(rs.getString("nombre"));
-                    raza.setEspecie_id(ServicioEspecie.getInstancia().getEspeciePorId(rs.getInt("especie")));
-                    
+                    raza.setEspecie_id(ServicioEspecie.getInstancia().getEspeciePorId(rs.getInt("especied_id")));                    
                     Listaraza.add(raza);
                  }
             }
