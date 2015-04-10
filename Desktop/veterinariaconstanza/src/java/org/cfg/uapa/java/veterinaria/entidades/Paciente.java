@@ -16,7 +16,7 @@ public class Paciente {
   private String genero;
   private Raza raza_id;
   private String fecha_nacimiento;
-  private String peso;
+  private int peso;
   private Doctor doctor_id;
 
     /**
@@ -121,15 +121,16 @@ public class Paciente {
     /**
      * @return the peso
      */
-    public String getPeso() {
+    public int getPeso() {
         return peso;
     }
 
     /**
      * @param peso the peso to set
      */
-    public void setPeso(String peso) {
+    public void setPeso(int peso) {
         this.peso = peso;
     }
-    
+
+ 
 }

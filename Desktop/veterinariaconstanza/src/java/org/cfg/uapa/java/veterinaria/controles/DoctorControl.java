@@ -44,11 +44,11 @@ public class DoctorControl extends HttpServlet {
 
         if (isCreado) {
 
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("doctor.jsp");
 
         } else {
 
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("creardoctor.jsp");
 
         }
         

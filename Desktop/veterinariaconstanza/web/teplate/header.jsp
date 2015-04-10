@@ -40,25 +40,31 @@
                             <ul>
                                 <li class="current_page_item"><a href="index.jsp">Inicio</a></li>
                                 <li>
-                                    <a href="">Reservar</a>
+                                    <a href="">Servicios</a>
                                     <ul>
                                         <li><a href="crearcita.jsp">Crear Citas</a></li>
                                         <li><a href="cita.jsp">cita</a></li>                                
                                     </ul>
                                 </li>
-                                <li><a href="">Doctores</a>
+                                <li><a href="">Registros</a>
                                     <ul>
-                                        <li><a href="creardoctor.jsp">Crear Doctores</a></li>
-                                        <li><a href="doctor.jsp">Ver Doctores</a></li>                                                
+                                        <li><a href="creardoctor.jsp">Doctor</a></li>                             
+                                        <li><a href="crearcliente.jsp">Cliente</a> </li> 
+                                        <li><a href="crearpaciente.jsp">Paciente</a> </li>
+                                         <li><a href="crearespecie.jsp">Especie</a> </li> 
+                                        <li><a href="crearraza.jsp">Raza</a> </li> 
                                     </ul>
-
+                                </li>        
                                 </li>
-                                <li><a href="">Cliente</a>
+                                <li><a href="">vista</a>
                                     <ul>
-                                        <li><a href="crearcliente.jsp">Crear Cliente</a></li>
-                                        <li><a href="cliente.jsp">Ver Cliente</a></li>                                                
+                                        <li><a href="doctor.jsp">Doctor</a> </li>
+                                        <li><a href="cliente.jsp">Cliente</a></li> 
+                                        <li><a href="paciente.jsp">Paciente</a></li>
+                                         <li><a href="especie.jsp">Especie</a></li> 
+                                        <li><a href="raza.jsp">Raza</a></li> 
                                     </ul>
-                                </li>
+                                </li>          
                                 <li><a href="">Logaut</a></li>
                             </ul>
                         </nav>

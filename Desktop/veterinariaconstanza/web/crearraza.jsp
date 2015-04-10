@@ -21,7 +21,7 @@
 
 
 <h3>MANTENIMIENTO DE Raza</h3>
-        <p>Tiene <%=especie.size()%> razas</p>
+      
         <div id="contenedor">          
           <form action="/veterinariaconstanza/RazaControl"  method="post">
             <div class="form-group">

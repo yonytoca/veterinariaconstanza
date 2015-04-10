@@ -6,7 +6,8 @@
 package org.cfg.uapa.java.veterinaria.controles;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,11 +35,14 @@ public class CitaControl extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
+     * @throws java.text.ParseException
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, ParseException {
         
         String fecha = request.getParameter("fecha");
+        SimpleDateFormat fechas= new SimpleDateFormat("dd-MM-yyyy"); 
+        java.util.Date d=fechas.parse(fecha);      
         String pacientes = request.getParameter("paciente");
         String razon = request.getParameter("razon");
         String doctore = request.getParameter("doctor");
@@ -51,5 +55,19 @@ public class CitaControl extends HttpServlet {
         cita.setPaciente_id(paciente);
         cita.setRazon(razon);
         cita.setDoctor_id(doctor);
+        
+          boolean isCreado = ServicioCita.getInstancia().crearCita(cita);
+
+        if (isCreado) {
+
+            response.sendRedirect("cita.jsp");
+
+        } else {
+
+            response.sendRedirect("crearcita.jsp");
+
+        }
+        
     }
     }
+    

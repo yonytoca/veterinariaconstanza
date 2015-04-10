@@ -3,7 +3,7 @@
     Created on : 31-mar-2015, 3:24:12
     Author     : victor
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.util.LinkedList"%>
 <%@page import="org.cfg.uapa.java.veterinaria.servicios.ServicioPais"%>
 <%@page import="java.util.List"%>

@@ -45,28 +45,19 @@
                         <!-- Nav -->
                         <nav id="nav">
                             <ul>
-                                <li class="current_page_item"><a href="index.jsp">Inicio</a></li>
+                                <li class="current_page_item"><a href="inicio.jsp">Inicio</a></li>
                                 <li>
-                                    <a href="">Reservar</a>
-                                    <ul>
-                                        <li><a href="crearcita.jsp">Crear Citas</a></li>
-                                        <li><a href="cita.jsp">cita</a></li>                                
-                                    </ul>
+                                    <a href="">Quienes Somos</a>
+                                   
                                 </li>
-                                <li><a href="">Doctores</a>
-                                    <ul>
-                                        <li><a href="creardoctor.jsp">Crear Doctores</a></li>
-                                        <li><a href="doctor.jsp">Ver Doctores</a></li>                                                
-                                    </ul>
+                                <li><a href="">Galeria</a>
+                                  
 
                                 </li>
-                                <li><a href="">Cliente</a>
-                                    <ul>
-                                        <li><a href="crearcliente.jsp">Crear Cliente</a></li>
-                                        <li><a href="cliente.jsp">Ver Cliente</a></li>                                                
-                                    </ul>
+                                <li><a href="crearcliente.jsp">Registrate</a>
+                                  
                                 </li>
-                                <li><a href="">Logaut</a></li>
+                                <li><a href="login.jsp">Login</a></li>
                             </ul>
                         </nav>
 

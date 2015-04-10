@@ -7,6 +7,10 @@ package org.cfg.uapa.java.veterinaria.controles;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,24 +22,37 @@ import org.cfg.uapa.java.veterinaria.entidades.Paciente;
 import org.cfg.uapa.java.veterinaria.entidades.Raza;
 import org.cfg.uapa.java.veterinaria.servicios.ServicioCliente;
 import org.cfg.uapa.java.veterinaria.servicios.ServicioDoctor;
+import org.cfg.uapa.java.veterinaria.servicios.ServicioPaciente;
 import org.cfg.uapa.java.veterinaria.servicios.ServicioRaza;
 
 /**
  *
- * @author victor
+ * @author EDUARDO
  */
 @WebServlet(name = "PacienteControl", urlPatterns = {"/PacienteControl"})
 public class PacienteControl extends HttpServlet {
 
- 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, ParseException {
+        
         String clientes = request.getParameter("inputcliente");
         String nombre = request.getParameter("nombre");
         String genero = request.getParameter("genero");
          String raza = request.getParameter("inputraza");
-        String fnacimiento = request.getParameter("fechanacimiento");
-        String peso = request.getParameter("peso");       
+       String fnacimiento = request.getParameter("fnacimiento");
+       SimpleDateFormat fecha = new SimpleDateFormat("dd-MM-yyy");
+       java.util.Date d= fecha.parse(fnacimiento);
+      //  String peso = request.getParameter("peso"); 
+        int peso = Integer.parseInt("peso");
         String doc = request.getParameter("inputdoctor");       
        
         
@@ -53,8 +70,9 @@ public class PacienteControl extends HttpServlet {
         paciente.setPeso(peso);
         paciente.setDoctor_id(doctor);
         
+        
        
-        boolean isCreado = ServicioCliente.getInstancia().crearCliente(cliente);
+        boolean isCreado = ServicioPaciente.getInstancia().crearPaciente(paciente);
 
         if (isCreado) {
 
@@ -65,6 +83,53 @@ public class PacienteControl extends HttpServlet {
             response.sendRedirect("login.jsp");
 
         }
-        
     }
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(PacienteControl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(PacienteControl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
 }

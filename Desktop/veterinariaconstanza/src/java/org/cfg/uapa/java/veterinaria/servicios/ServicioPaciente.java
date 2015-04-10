@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.cfg.uapa.java.veterinaria.entidades.Doctor;
 import org.cfg.uapa.java.veterinaria.entidades.Paciente;
 
 /**
@@ -45,7 +44,7 @@ public class ServicioPaciente {
                     pacientes.setGenero(rs.getString("genero"));
                     pacientes.setRaza_id(ServicioRaza.getInstancia().getRazaporId(rs.getInt("raza_id")));
                     pacientes.setFecha_nacimiento(rs.getString("fecha_nacimiento"));
-                    pacientes.setPeso(rs.getString("peso"));
+                    pacientes.setPeso(rs.getInt("peso"));
                     pacientes.setDoctor_id(ServicioDoctor.getInstancia().getDoctorPorId(rs.getInt("doctor_id")));
                    // pacientes.setDoctor_id(rs.getInt("doctor_id"));
                     Listapaciente.add(pacientes);
@@ -58,6 +57,7 @@ public class ServicioPaciente {
 
         return Listapaciente;
     }
+    
 
 
 
@@ -117,7 +117,7 @@ public class ServicioPaciente {
              stmt.setString(3,paciente.getGenero());
              stmt.setInt(4,paciente.getRaza_id().getId());
              stmt.setString(5,paciente.getFecha_nacimiento());            
-             stmt.setString(6,paciente.getPeso());
+             stmt.setInt(6, paciente.getPeso());
              stmt.setInt(7,paciente.getDoctor_id().getId());
             
 

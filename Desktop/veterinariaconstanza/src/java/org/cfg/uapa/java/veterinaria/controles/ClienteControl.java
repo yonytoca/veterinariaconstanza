@@ -63,11 +63,11 @@ public class ClienteControl  extends HttpServlet {
 
         if (isCreado) {
 
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("cliente.jsp");
 
         } else {
 
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("crearcliente.jsp");
 
         }
         

@@ -4,7 +4,4 @@
     Author     : victor
 --%>
 <jsp:include page="teplate/header.jsp"/>
-
-
-
 <jsp:include page="teplate/footer.jsp"/>

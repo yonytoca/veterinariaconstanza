@@ -19,30 +19,24 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.cfg.uapa.java.veterinaria.entidades.Cita;
-import org.cfg.uapa.java.veterinaria.entidades.Doctor;
 
 public class ServicioCita {    
+    private static final ServicioCita INSTANCIA = new ServicioCita();
 
-    private static ServicioCita INSTANCIA = null;
-    
-    public static ServicioCita getInstancia(){
-       
-         if (INSTANCIA == null) {
-            INSTANCIA = new ServicioCita();
-          }
-          return INSTANCIA;
-        
+    private ServicioCita() {
     }
-     private ServicioCita() { }
+
+    public static ServicioCita getInstancia() {
+        return INSTANCIA;
+    }    
     
     public List<Cita> getListadoCita() {
 
-        List<Cita> lista = new ArrayList<>();
+        List<Cita> listacita = new ArrayList<>();
        
 
-        try {
-         Statement stmt = (Statement) Coneccion.getInstancia().getConeccion();
-        ResultSet rs = stmt.executeQuery("select * from cita");         
+         try (PreparedStatement stmt = Coneccion.getInstancia().getConeccion().prepareStatement("select * from cita")) {
+            try (ResultSet rs = stmt.executeQuery()) {      
 
             while (rs.next()) {               
                 Cita cita = new Cita();
@@ -50,17 +44,17 @@ public class ServicioCita {
                 cita.setFecha(rs.getString("fecha"));
                 cita.setPaciente_id(ServicioPaciente.getInstancia().getPacientePorId(rs.getInt("paciente_id")));
                 cita.setDoctor_id(ServicioDoctor.getInstancia().getDoctorPorId(rs.getInt("doctor_id")));
-                
-                lista.add(cita);
+                cita.setRazon(rs.getString("razon"));
+                listacita.add(cita);
             }
-
+         }
        
             } catch (SQLException e) {
                 Logger.getLogger(ServicioCita.class.getName()).log(Level.SEVERE, null, e);
             }
         
 
-        return lista;
+        return listacita;
     }
     
     public boolean crearCita(Cita cita) {

@@ -3,6 +3,7 @@
     Created on : 24-mar-2015, 2:29:19
     Author     : EDUARDO
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="org.cfg.uapa.java.veterinaria.servicios.ServicioPaciente"%>
 <%@page import="org.cfg.uapa.java.veterinaria.entidades.Paciente"%>
 <jsp:include page="teplate/header.jsp"/>
@@ -34,12 +35,12 @@
 
                     <tr>
                         <td>Fecha:</td>
-                        <td> <input type="text" name="fecha" required="" maxlength="5" /> </td> 
+                        <td> <input type="text" name="fecha" required="" maxlength="8" /> </td> 
                         <td>Paciente:</td>                        
                         <td> 
                             <select name="paciente">
-                                <c:forEach items="<%=paciente%>" var="cita">
-                                <option value="${cita.getId()}">${cita.getNombre()}</option>
+                                <c:forEach items="<%=paciente%>" var="paciente">
+                                <option value="${paciente.getId()}">${paciente.getNombre()}</option>
                                 </c:forEach>
                             </select>
                         </td>
@@ -50,7 +51,7 @@
                          <td>Doctor:</td>
                         <td> 
                             <select name="doctor">
-                                <c:forEach items="<%=doctor%>" var="pais">
+                                <c:forEach items="<%=doctor%>" var="doctor">
                                 <option value="${doctor.getId()}">${doctor.getNombre()}</option>
                                 </c:forEach>
                             </select>
