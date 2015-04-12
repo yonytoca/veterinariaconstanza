@@ -18,7 +18,9 @@
 <center>
 <h2 class="sub-header">Clientes</h2>
 
-<table class="table table-striped">
+<p>Buscar  »<input name="buscador" id="buscador" type="text" /></p>
+
+<table id="lista" class="table table-striped">
     <tr><th>#</th><th>Nombre</th><th>Apellido</th><th>Telefono</th><th>Calle</th><th>Apartamento</th><th>Ciudad</th><th>Pais</th></tr>    
      <c:forEach items="<%=cliente%>" var="cliente">
         <tr><td>${cliente.getId()}</td><td>${cliente.getNombre()}</td><td>${cliente.getApellido()}</td><td>${cliente.getTelefono()}</td><td>${cliente.getCalle()}</td><td>${cliente.getApartamento()}</td><td>${cliente.getCiudad()}</td><td>${cliente.getPais_id().getDescripcion()}</td></tr>

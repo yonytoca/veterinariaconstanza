@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+       
         <title>Veterinaria Constanza</title>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="description" content="" />
@@ -64,7 +65,10 @@
                                          <li><a href="especie.jsp">Especie</a></li> 
                                         <li><a href="raza.jsp">Raza</a></li> 
                                     </ul>
-                                </li>          
+                                </li>
+                                 <li>
+                                    <a href="buscar.jsp">Buscar</a>                                    
+                                </li>
                                 <li><a href="">Logaut</a></li>
                             </ul>
                         </nav>
