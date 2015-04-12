@@ -40,6 +40,7 @@ public class PacienteControl extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
+     * @throws java.text.ParseException
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException {
@@ -47,12 +48,11 @@ public class PacienteControl extends HttpServlet {
         String clientes = request.getParameter("inputcliente");
         String nombre = request.getParameter("nombre");
         String genero = request.getParameter("genero");
-         String raza = request.getParameter("inputraza");
-       String fnacimiento = request.getParameter("fnacimiento");
-       SimpleDateFormat fecha = new SimpleDateFormat("dd-MM-yyy");
-       java.util.Date d= fecha.parse(fnacimiento);
-      //  String peso = request.getParameter("peso"); 
-        int peso = Integer.parseInt("peso");
+        String raza = request.getParameter("inputraza");
+        String fnacimiento = request.getParameter("fnacimiento");   
+        int peso = Integer.parseInt(request.getParameter("peso")); 
+        
+        
         String doc = request.getParameter("inputdoctor");       
        
         
@@ -76,11 +76,11 @@ public class PacienteControl extends HttpServlet {
 
         if (isCreado) {
 
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("paciente.jsp");
 
         } else {
 
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("crearpaciente.jsp");
 
         }
     }

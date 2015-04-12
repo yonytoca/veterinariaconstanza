@@ -25,5 +25,5 @@
     </c:forEach>
 </table>
 </center>
-<a href="crearpacientes.jsp"> Agregar pacientes</a>
+<a href="crearpaciente.jsp"> Agregar pacientes</a>
 <jsp:include page="teplate/footer.jsp"/>

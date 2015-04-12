@@ -214,7 +214,11 @@
 
 	#footer
 	{
-            background-color: #FFFFFF;
+           background: rgba(255,255,255,0.10);
+            width: 1200px;
+            height: 150px;
+            -webkit-border-radius: 20px;               
+                
 	}
 
 /*********************************************************************************/

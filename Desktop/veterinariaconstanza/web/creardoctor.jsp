@@ -12,10 +12,7 @@
 <!DOCTYPE html>
 
         <h1>Crear Doctor</h1>
- <%
-    List<Doctor> doctor = ServicioDoctor.getInstancia().getListadoDoctores();
-
-%>
+ 
  <link rel="stylesheet" href="css/formulariocss.css" />      
 <div id="contenedor">              
          <form class="form-horizontal" action="/veterinariaconstanza/DoctorControl" method="post">

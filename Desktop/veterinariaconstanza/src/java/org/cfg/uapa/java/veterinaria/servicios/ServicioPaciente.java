@@ -20,14 +20,14 @@ import org.cfg.uapa.java.veterinaria.entidades.Paciente;
  * @author victor
  */
 public class ServicioPaciente {
-     private static ServicioPaciente INSTANCIA = null;
-
-    public static ServicioPaciente getInstancia() {
-        if (INSTANCIA == null) {
-            INSTANCIA = new ServicioPaciente();
-        }
+    
+    private static final ServicioPaciente INSTANCIA = new ServicioPaciente();
+    public static ServicioPaciente getInstancia(){
         return INSTANCIA;
+        
     }
+     private ServicioPaciente(){
+     }
 
     public List<Paciente> getListadoPaciente() throws SQLException {
 
@@ -44,13 +44,15 @@ public class ServicioPaciente {
                     pacientes.setGenero(rs.getString("genero"));
                     pacientes.setRaza_id(ServicioRaza.getInstancia().getRazaporId(rs.getInt("raza_id")));
                     pacientes.setFecha_nacimiento(rs.getString("fecha_nacimiento"));
+                    //pacientes.setPesos(rs.getString("peso"));
                     pacientes.setPeso(rs.getInt("peso"));
                     pacientes.setDoctor_id(ServicioDoctor.getInstancia().getDoctorPorId(rs.getInt("doctor_id")));
-                   // pacientes.setDoctor_id(rs.getInt("doctor_id"));
+                 
                     Listapaciente.add(pacientes);
                  }
             }
 
+            
         } catch (SQLException ex) {
             Logger.getLogger(ServicioPaciente.class.getName()).log(Level.SEVERE, null, ex);          
         }
