@@ -112,6 +112,8 @@ public class ServicioCliente {
             cliente = new Cliente();
             cliente.setId(rs.getInt("id"));           
             cliente.setNombre(rs.getString("nombre"));
+            cliente.setApellido(rs.getString("apellido"));
+            
         } catch (SQLException e) {
             Logger.getLogger(ServicioCliente.class.getName()).log(Level.SEVERE, null, e);
         } finally {
@@ -153,6 +155,53 @@ public class ServicioCliente {
              stmt.setInt(7, cliente.getPais_id().getId());            
              stmt.setString(8, cliente.getUsuario());
              stmt.setString(9,cliente.getClave());
+            
+        
+
+            stmt.executeUpdate();
+            
+            estado = true;
+
+        } catch (SQLException e) {
+            estado = false;
+             Logger.getLogger(ServicioCliente.class.getName()).log(Level.SEVERE, null, e);
+        }finally{
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ServicioCliente.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                }
+               }
+        
+        return estado;
+
+    }   
+           
+     
+public boolean editarCliente(Cliente  cliente) {
+
+        boolean estado = false;
+        PreparedStatement stmt = null ;
+        String sql = "update cliente set nombre = ?, apellido=?, telefono=?, calle=?, apartamento=?, ciudad=?, pais_id=?, usuario=?, clave=? where id=1";
+        
+         Connection con = Coneccion.getInstancia().getConeccion();
+
+        try {
+
+             stmt = con.prepareStatement(sql);
+             stmt.setString(1, cliente.getNombre());
+             stmt.setString(2,cliente.getApellido());
+             stmt.setString(3,cliente.getTelefono());
+             stmt.setString(4,cliente.getCalle());
+             stmt.setString(5,cliente.getApartamento());
+             stmt.setString(6,cliente.getCiudad());
+             stmt.setInt(7, cliente.getPais_id().getId());            
+             stmt.setString(8, cliente.getUsuario());
+             stmt.setString(9,cliente.getClave());
+             stmt.setInt(10, cliente.getId());
             
         
 

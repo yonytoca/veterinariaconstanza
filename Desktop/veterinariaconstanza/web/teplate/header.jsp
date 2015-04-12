@@ -20,6 +20,26 @@
         </noscript>
         <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
         <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+.resaltar{background-color:white;}
+.Estilo1 {color: #005500;}
+</style> 
+        
+  <script type='text/javascript' >
+    $.expr[':'].icontains = function(obj, index, meta, stack){
+    return (obj.textContent || obj.innerText || jQuery(obj).text() || '').toLowerCase().indexOf(meta[3].toLowerCase()) >= 0;
+    };
+    $(document).ready(function(){   
+        $('#buscador').keyup(function(){
+                     buscar = $(this).val();
+                     $('#lista tr').removeClass('resaltar');
+                            if(jQuery.trim(buscar) != ''){
+                               $("#lista tr:icontains('" + buscar + "')").addClass('resaltar');
+                            }
+            });
+    });   
+ </script>
     </head>
 
 

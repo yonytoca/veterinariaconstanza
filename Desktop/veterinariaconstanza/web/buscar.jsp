@@ -16,7 +16,7 @@
     <head>
         <script src="http://code.jquery.com/jquery-latest.min.js"></script> 
 <style>
-.resaltar{background-color:#b5cfd2;}
+.resaltar{background-color:white;}
 .Estilo1 {color: #005500;}
 </style> 
         

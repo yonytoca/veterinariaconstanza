@@ -12,18 +12,17 @@
 <link rel="stylesheet" href="css/tablasvistacss.css" />
 
 <%
-    List<Cliente> cliente = ServicioCliente.getInstancia().getListadoCliente();
-   
+    List<Cliente> cliente = ServicioCliente.getInstancia().getListadoCliente();  
 %>
 <center>
 <h2 class="sub-header">Clientes</h2>
 
 <p>Buscar  »<input name="buscador" id="buscador" type="text" /></p>
 
-<table id="lista" class="table table-striped">
+<table id="lista" >
     <tr><th>#</th><th>Nombre</th><th>Apellido</th><th>Telefono</th><th>Calle</th><th>Apartamento</th><th>Ciudad</th><th>Pais</th></tr>    
      <c:forEach items="<%=cliente%>" var="cliente">
-        <tr><td>${cliente.getId()}</td><td>${cliente.getNombre()}</td><td>${cliente.getApellido()}</td><td>${cliente.getTelefono()}</td><td>${cliente.getCalle()}</td><td>${cliente.getApartamento()}</td><td>${cliente.getCiudad()}</td><td>${cliente.getPais_id().getDescripcion()}</td></tr>
+        <tr><td>${cliente.getId()}</td><td><a href="editarcliente.jsp?id=${cliente.getId()}">${cliente.getNombre()}</a></td><td>${cliente.getApellido()}</td><td>${cliente.getTelefono()}</td><td>${cliente.getCalle()}</td><td>${cliente.getApartamento()}</td><td>${cliente.getCiudad()}</td><td>${cliente.getPais_id().getDescripcion()}</td></tr>
     </c:forEach>
 </table>
 </center>
