@@ -79,6 +79,8 @@ public class ServicioCliente {
                     usuario1 = new Cliente();                                   
                     usuario1.setUsuario(rs.getString("usuario"));
                     usuario1.setClave(rs.getString("clave"));
+                    usuario1.setNombre(rs.getString("nombre"));
+                    usuario1.setApellido(rs.getString("apellido"));
 
                 }
             }
