@@ -69,8 +69,7 @@
                                 </li>
                                 <li><a href="">Registros</a>
                                     <ul>
-                                        <li><a href="creardoctor.jsp">Doctor</a></li>                             
-                                        <li><a href="crearcliente.jsp">Cliente</a> </li> 
+                                        <li><a href="creardoctor.jsp">Doctor</a></li>                                                                     
                                         <li><a href="crearpaciente.jsp">Paciente</a> </li>
                                          <li><a href="crearespecie.jsp">Especie</a> </li> 
                                         <li><a href="crearraza.jsp">Raza</a> </li> 

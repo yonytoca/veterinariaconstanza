@@ -39,6 +39,10 @@
                              
                             <input type="password" name="clave" value="" id="password" tabindex="2"/>
                         </div>
+                        <a href="crearcliente.jsp"> Resgistrate</a>
+                        <div>
+                            
+                        </div>       
                     </div>
                     <!-- .login_fields -->
                     <div class="login_actions">

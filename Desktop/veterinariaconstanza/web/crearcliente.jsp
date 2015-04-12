@@ -9,7 +9,7 @@
 <%@page import="org.cfg.uapa.java.veterinaria.entidades.Pais"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<jsp:include page="teplate/header.jsp"/>
+
 <link rel="stylesheet" href="css/formulariocss.css" />
  <%
    List<Pais> pais = ServicioPais.getInstancia().getListadoPais();
@@ -65,4 +65,3 @@
         </div>
 
 
-<jsp:include page="teplate/footer.jsp"/>
