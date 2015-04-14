@@ -11,25 +11,30 @@
 <!DOCTYPE html>
 <jsp:include page="teplate/header.jsp"/>
 
- <%
+<%
     List<Doctor> doctor = ServicioDoctor.getInstancia().getListadoDoctores();
 
 %>
 
-   
-   <center>
-       <h2 class="sub-header">Doctores</h2>
- <table class="table table-striped">
-     <tr><th>#</th><th>Nmobre</th><th>Apellido</th></tr>    
-            <c:forEach items="<%=doctor%>" var="doctor">
-        <tr><td>${doctor.getId()}</td><td>${doctor.getNombre()}</td><td>${doctor.getApellido()}</td></tr>
 
-    </c:forEach>
-</table>
-   </center>
+<center>
+    <h2 class="sub-header">Doctores</h2>
+</center>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr><th>#</th><th>Nmobre</th><th>Apellido</th></tr>
+            </thead>
+            <tbody
+                        <c:forEach items="<%=doctor%>" var="doctor">
+                    <tr><td>${doctor.getId()}</td><td>td><a href="editarcliente.jsp?id=${doctor.getId()}">${doctor.getNombre()}</td><td>${doctor.getApellido()}</td></tr>
+
+                </c:forEach>
+           </tbody>        
+        </table>
+    </div>
 <a href="creardoctor.jsp"> Agregar Doctor</a>
 
 
 
 <jsp:include page="teplate/footer.jsp"/>
-        

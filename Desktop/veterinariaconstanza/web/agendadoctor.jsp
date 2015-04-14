@@ -3,7 +3,7 @@
     Created on : 13-abr-2015, 19:17:45
     Author     : victor
 --%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@page import="org.cfg.uapa.java.veterinaria.servicios.ServicioCita"%>
 <%@page import="org.cfg.uapa.java.veterinaria.entidades.Cita"%>
 <%@page import="org.cfg.uapa.java.veterinaria.servicios.ServicioDoctor"%>
@@ -12,7 +12,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
  <%
-    List<Doctor> doctor = ServicioDoctor.getInstancia().getListadoDoctores();
+ 
  int id = Integer.parseInt(request.getParameter("id"));
   Cita citas = ServicioCita.getInstancia().getCitaPorId(id);
 %>

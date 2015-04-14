@@ -12,25 +12,31 @@
 <jsp:include page="teplate/header.jsp"/>
 <link rel="stylesheet" href="css/tablasvistacss.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- <%
+<%
     List<Cita> citas = ServicioCita.getInstancia().getListadoCita();
-   
+
 %>
 
 <center>
-       <h2 class="sub-header">Cita</h2>
- <table class="table table-striped">
-     <tr><th>Codigo</th><th>Fecha</th><th>Paciente</th><th>Doctor</th><th>Razon</th></tr>    
-            <c:forEach items="<%=citas%>" var="citas">
-        <tr><td>${citas.getId()}</td><td>${citas.getFecha()}</td><td>${citas.getPaciente_id().getNombre()}</td><td><a href="agendadoctor.jsp?id=${citas.getId()}">${citas.getDoctor_id().getNombre()}</td><td>${citas.getRazon()}</td></tr>
+    <h2 class="sub-header">Cita</h2>
+</center>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr><th>Codigo</th><th>Fecha</th><th>Paciente</th><th>Doctor</th><th>Razon</th></tr>   
+        </thead>
+        <tbody
+                    <c:forEach items="<%=citas%>" var="citas">
+                <tr><td>${citas.getId()}</td><td>${citas.getFecha()}</td><td>${citas.getPaciente_id().getNombre()}</td><td>${citas.getDoctor_id().getNombre()}</td><td>${citas.getRazon()}</td></tr>
 
-    </c:forEach>
-</table>
-   </center>
+            </c:forEach>
+</tbody>
+    </table>
 
 
-<a href="crearcita.jsp"> Crear Citas</a>    
+
+    <a href="crearcita.jsp"> Crear Citas</a>    
 
 
-<jsp:include page="teplate/footer.jsp"/>
-        
+    <jsp:include page="teplate/footer.jsp"/>
+

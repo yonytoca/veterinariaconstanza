@@ -15,15 +15,20 @@
    
 %>
 
-<link rel="stylesheet" href="css/tablasvistacss.css" />
+
 <center>
     <h2> Especies</h2>
-        <table class="table table-striped">
-    <tr><th>Codigo</th><th>Especies</th></tr>    
+</center>
+<div class="table-responsive">
+      <table class="table table-striped">
+         <thead>        
+    <tr><th>Codigo</th><th>Especies</th></tr> 
+         </thead>
+         <tbody>
             <c:forEach items="<%=especie%>" var="especie">
         <tr><td>${especie.getId()}</td><td>${especie.getNombre()}</td></tr>
-
     </c:forEach>
+         </tbody>
 </table>
     <a href="crearespecie.jsp"> Agregar Especie</a>
  <jsp:include page="teplate/footer.jsp"/>

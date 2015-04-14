@@ -63,5 +63,5 @@
 </table>
     
   </div>
-<a href="crearpaciente.jsp"> Agregar pacientes</a>
+
 <jsp:include page="teplate/footer.jsp"/>

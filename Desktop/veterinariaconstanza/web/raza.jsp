@@ -14,18 +14,24 @@
 <link rel="stylesheet" href="css/tablasvistacss.css" />
 
 <%
-   List<Raza> razas = ServicioRaza.getInstancia().getListadoRaza(); 
-  
+    List<Raza> razas = ServicioRaza.getInstancia().getListadoRaza();
+
 %>
 
 <center>
-<h2 class="sub-header">Raza</h2>
-<table class="table table-striped">
-    <tr><th>#</th><th>Nombre</th><th>especie</th></tr>    
-     <c:forEach items="<%=razas%>" var="razas">
-        <tr><td>${razas.getId()}</td><td>${razas.getNombre()}</td><td>${razas.getEspecie_id().getNombre()}</td></tr>
-    </c:forEach>
-</table>
+    <h2 class="sub-header">Raza</h2>   
 </center>
-<a href="crearraza.jsp"> Agregar Raza</a>
-<jsp:include page="teplate/footer.jsp"/>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr><th>#</th><th>Nombre</th><th>especie</th></tr>   
+        </thead>
+        <tbody>
+                    <c:forEach items="<%=razas%>" var="razas">
+                <tr><td>${razas.getId()}</td><td>${razas.getNombre()}</td><td>${razas.getEspecie_id().getNombre()}</td></tr>
+            </c:forEach>
+        </tbody>
+    </table>
+</div>
+    <a href="crearraza.jsp"> Agregar Raza</a>
+    <jsp:include page="teplate/footer.jsp"/>

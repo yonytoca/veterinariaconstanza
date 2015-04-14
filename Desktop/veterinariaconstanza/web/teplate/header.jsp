@@ -77,12 +77,12 @@
                     <ul class="nav nav-stacked collapse in" id="userMenu">
                         <li class="active"> <a href="#"><i class="glyphicon glyphicon-home"></i> Inicio</a></li>
                         <li><a href="cliente.jsp"><i class="glyphicon glyphicon-cog"></i> Cliente</a></li>
-                        <li><a href="crearpaciente.jsp"><i class="glyphicon glyphicon-cog"></i> Paciente</a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-comment"></i> Doctor</a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-user"></i> Raza</a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-flag"></i> Especies</a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-exclamation-sign"></i>Cita</a></li>
-                        <li><a href="logout.jsp"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
+                        <li><a href="paciente.jsp"><i class="glyphicon glyphicon-cog"></i> Paciente</a></li>
+                        <li><a href="doctor.jsp"><i class="glyphicon glyphicon-comment"></i> Doctor</a></li>
+                        <li><a href="raza.jsp"><i class="glyphicon glyphicon-user"></i> Raza</a></li>
+                        <li><a href="especie.jsp"><i class="glyphicon glyphicon-flag"></i> Especies</a></li>
+                        <li><a href="cita.jsp"><i class="glyphicon glyphicon-exclamation-sign"></i>Cita</a></li>
+                        <li><a href="logaut.jsp"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
                     </ul>
                 </li>          
             </ul>

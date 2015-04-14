@@ -11,20 +11,25 @@
 <%@page import="org.cfg.uapa.java.veterinaria.entidades.Cliente"%>
 
 <%
-    List<Cliente> cliente = ServicioCliente.getInstancia().getListadoCliente();  
+    List<Cliente> cliente = ServicioCliente.getInstancia().getListadoCliente();
 %>
 <center>
-<h2 class="sub-header">Clientes</h2>
-
-<p>Buscar  »<input name="buscador" id="buscador" type="text" /></p>
-
-<table id="lista" >
-    <tr><th>#</th><th>Nombre</th><th>Apellido</th><th>Telefono</th><th>Calle</th><th>Apartamento</th><th>Ciudad</th><th>Pais</th></tr>    
-     <c:forEach items="<%=cliente%>" var="cliente">
-        <tr><td>${cliente.getId()}</td><td><a href="editarcliente.jsp?id=${cliente.getId()}">${cliente.getNombre()}</a></td><td>${cliente.getApellido()}</td><td>${cliente.getTelefono()}</td><td>${cliente.getCalle()}</td><td>${cliente.getApartamento()}</td><td>${cliente.getCiudad()}</td><td>${cliente.getPais_id().getDescripcion()}</td></tr>
-    </c:forEach>
-</table>
+    <h2 class="sub-header">Clientes</h2>
 </center>
+    <p>Buscar  »<input name="buscador" id="buscador" type="text" /></p>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr><th>#</th><th>Nombre</th><th>Apellido</th><th>Telefono</th><th>Calle</th><th>Apartamento</th><th>Ciudad</th><th>Pais</th></tr>    
+            </thead>
+            <tbody>
+                <c:forEach items="<%=cliente%>" var="cliente">
+                    <tr><td>${cliente.getId()}</td><td><a href="editarcliente.jsp?id=${cliente.getId()}">${cliente.getNombre()}</a></td><td>${cliente.getApellido()}</td><td>${cliente.getTelefono()}</td><td>${cliente.getCalle()}</td><td>${cliente.getApartamento()}</td><td>${cliente.getCiudad()}</td><td>${cliente.getPais_id().getDescripcion()}</td></tr>
+                        </c:forEach>
+            </tbody>
+        </table>
+    </div>
 <a href="crearcliente.jsp"> Agregar Cliente</a>
 
 <jsp:include page="teplate/footer.jsp"/>
