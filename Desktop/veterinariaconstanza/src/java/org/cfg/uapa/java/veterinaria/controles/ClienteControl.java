@@ -43,29 +43,8 @@ public class ClienteControl  extends HttpServlet {
         String ciudad = request.getParameter("ciudad");       
         String Pais = request.getParameter("inputPais");       
         String usuario = request.getParameter("usuario");
-        String clave = request.getParameter("clave");
-        
-     ServicioCliente m = new ServicioCliente();
-     Cliente  usu =  m.checkCliente(usuario,clave);
-         
-    //Creando session    
-    HttpSession session = request.getSession(true); 
-        
-     if(usu instanceof Cliente){
-         System.out.println("Usuario registrado");
-        
-         
-         session.setAttribute("currentSessionUser",usu); 
-         response.sendRedirect("index.jsp");
-         
-     }else{
-         
-         System.out.println("Usuario no registrado");
-        //Enviando mensaje a la pagina de login
-         session.setAttribute("loginFailed","Usuario no registrado"); 
-         response.sendRedirect("login.jsp");
-         
-     }
+        String clave = request.getParameter("clave");       
+    
 
         Pais pais =  ServicioPais.getInstancia().getPaisPorId(Integer.valueOf(Pais));
         

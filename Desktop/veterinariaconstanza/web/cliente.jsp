@@ -9,7 +9,6 @@
 <%@page import="org.cfg.uapa.java.veterinaria.servicios.ServicioCliente"%>
 <%@page import="java.util.List"%>
 <%@page import="org.cfg.uapa.java.veterinaria.entidades.Cliente"%>
-<link rel="stylesheet" href="css/tablasvistacss.css" />
 
 <%
     List<Cliente> cliente = ServicioCliente.getInstancia().getListadoCliente();  

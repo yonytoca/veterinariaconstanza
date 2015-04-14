@@ -21,7 +21,7 @@
                     <ul class="right">
                         <li>
                             Usted cerr&oacute; session. Favor pulsar
-                            <a href="login.jsp">aqu&iacute;</a>
+                            <% response.sendRedirect("login.jsp");%>
                             para acceder nuevamente.
                         </li>
                     </ul>

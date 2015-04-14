@@ -1,3 +1,4 @@
+
 <%-- 
     Document   : crearpaciente
     Created on : 07-abr-2015, 1:41:59
@@ -14,7 +15,7 @@
 <%@page import="java.util.List"%>
 <%@page import="org.cfg.uapa.java.veterinaria.servicios.ServicioPaciente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="css/formulariocss.css" /> 
+
 
 <jsp:include page="teplate/header.jsp"/>
 
@@ -36,11 +37,11 @@
             </select>
             <div>
                 <label>Nombre</label>
-                <input type="text" name="nombre" style="width:30%;" id="inputNombre" class="form-control" placeholder="nombre"><br> <br>
+                <input type="text" name="nombre" style="width:30%;" id="inputNombre" class="form-control" placeholder="nombre">
             </div>
             <div>
                 <label>Genero</label>
-                <input type="text" name="genero" style="width:30%;" id="inputNombre" class="form-control" placeholder="genero"><br> <br>
+                <input type="text" name="genero" style="width:30%;" id="inputNombre" class="form-control" placeholder="genero">
             </div>
             
             <div>
@@ -75,7 +76,7 @@
                 <label>Peso</label>
                  <div class="input-icon">
             <i class="icon-user"></i>
-            <input type="text" name="peso" style="width:30%;" class="form-control" placeholder="Peso" data-rule-required="true"/><br><br>
+            <input type="text" name="peso" style="width:30%;" class="form-control" placeholder="Peso" data-rule-required="true"/>
                  </div>
                 
             </div>
@@ -93,4 +94,5 @@
             </div>
     </form>
 </div>
+  
 <jsp:include page="teplate/footer.jsp"/>

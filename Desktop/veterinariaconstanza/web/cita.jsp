@@ -22,7 +22,7 @@
  <table class="table table-striped">
      <tr><th>Codigo</th><th>Fecha</th><th>Paciente</th><th>Doctor</th><th>Razon</th></tr>    
             <c:forEach items="<%=citas%>" var="citas">
-        <tr><td>${citas.getId()}</td><td>${citas.getFecha()}</td><td>${citas.getPaciente_id().getNombre()}</td><td>${citas.getDoctor_id().getNombre()}</td><td>${citas.getRazon()}</td></tr>
+        <tr><td>${citas.getId()}</td><td>${citas.getFecha()}</td><td>${citas.getPaciente_id().getNombre()}</td><td><a href="agendadoctor.jsp?id=${citas.getId()}">${citas.getDoctor_id().getNombre()}</td><td>${citas.getRazon()}</td></tr>
 
     </c:forEach>
 </table>

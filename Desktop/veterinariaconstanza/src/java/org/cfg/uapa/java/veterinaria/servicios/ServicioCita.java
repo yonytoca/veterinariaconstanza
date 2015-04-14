@@ -57,6 +57,54 @@ public class ServicioCita {
         return listacita;
     }
     
+     public Cita getCitaPorId(int id) {
+
+        String sql = "select * from cita where id=?";
+
+        Connection con = Coneccion.getInstancia().getConeccion();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Cita citas = null;
+
+        try {
+
+            stmt = con.prepareStatement(sql);
+            stmt.setInt(1, id);
+
+            rs = stmt.executeQuery();
+
+            rs.next();
+            citas = new Cita();
+            citas.setId(rs.getInt("id"));  
+            citas.setFecha(rs.getString("fecha"));
+            citas.setPaciente_id(ServicioPaciente.getInstancia().getPacientePorId(rs.getInt("paciente_id")));
+            citas.setDoctor_id(ServicioDoctor.getInstancia().getDoctorPorId(rs.getInt("doctor_id")));
+            citas.setRazon(rs.getString("razon"));
+            
+        } catch (SQLException e) {
+            Logger.getLogger(ServicioCita.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException e) {
+                Logger.getLogger(ServicioCita.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+
+        return citas;
+    }
+      
+    
+    
+    
     public boolean crearCita(Cita cita) {
 
         boolean estado = false;

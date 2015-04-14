@@ -6,7 +6,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="org.cfg.uapa.java.veterinaria.servicios.ServicioPaciente"%>
 <%@page import="org.cfg.uapa.java.veterinaria.entidades.Paciente"%>
-<jsp:include page="teplate/header.jsp"/>
+
 
 <%@page import="org.cfg.uapa.java.veterinaria.entidades.Cita"%>
 <%@page import="org.cfg.uapa.java.veterinaria.servicios.ServicioCita"%>
@@ -16,7 +16,7 @@
 <%@ page import="java.util.List"%>
 <%@ page import="org.cfg.uapa.java.veterinaria.servicios.ServicioDoctor"%>
 <%@ page import="org.cfg.uapa.java.veterinaria.entidades.Doctor"%>
-
+<jsp:include page="teplate/header.jsp"/>
 <%
     List<Paciente> paciente = ServicioPaciente.getInstancia().getListadoPaciente();
     List<Doctor> doctor = ServicioDoctor.getInstancia().getListadoDoctores();
@@ -24,7 +24,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>JSP Page</title>
-<link rel="stylesheet" href="css/formulariocss.css" />
+
 
 <center>
     <h3>MANTENIMIENTO DE CITAS</h3>

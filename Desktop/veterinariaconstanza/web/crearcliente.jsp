@@ -10,7 +10,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-<link rel="stylesheet" href="css/formulariocss.css" />
+
+
  <%
    List<Pais> pais = ServicioPais.getInstancia().getListadoPais();
 
@@ -19,8 +20,12 @@
         
         <div id="contenedor">          
             <form action="/veterinariaconstanza/ClienteControl"  method="post">
-                <table>
-
+              
+                
+                 <div class="table-responsive">
+                        <table class="table table-striped">
+                          
+                  <tbody>
                     <tr>
                         <td>Nombre:</td>
                         <td> <input type="text" name="nombre" required="" /> 
@@ -57,7 +62,8 @@
                     <tr>
                         <td>Clave:</td>
                         <td> <input type="password" name="clave" required="" /> </td>
-                    </tr>                               
+                    </tr> 
+                    </tbody>
             </table>  
                <input type="submit" class="styled-button-1" value="Enviar" />
             </form>

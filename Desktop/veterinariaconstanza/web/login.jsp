@@ -25,7 +25,8 @@
             <% 
         }
         %>
-            <div id="login_panel">
+       
+        <div id="login_panel">
                 <form class="form-vertical login-form" action="/veterinariaconstanza/UsuarioControl" method="post">
                 
                     <div class="login_fields">
@@ -49,6 +50,9 @@
                         <button type="submit" class="btn btn-orange" tabindex="3">Acceder</button>
                     </div>
                 </form>
+            <center>
+        <h1>Veterinaria Constanza</h1>
+        </center>
             </div>
             <!-- #login_panel -->
         </div>

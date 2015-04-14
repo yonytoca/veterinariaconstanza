@@ -24,7 +24,7 @@
          <h3>ACTUALIZAR CLIENTE</h3>
         
         <div id="contenedor">          
-            <form action="/veterinariaconstanza/EditarClienteControl"  method="post">
+            <form action="/veterinariaconstanza/EditarClienteControl" method="post">
                 <table>
                     <tr>                    
                         <input type="hidden" name="id" value="<%=cliente.getId()%>" required="" /> 

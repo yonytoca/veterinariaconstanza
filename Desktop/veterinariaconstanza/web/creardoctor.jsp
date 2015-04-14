@@ -13,7 +13,7 @@
 
         <h1>Crear Doctor</h1>
  
- <link rel="stylesheet" href="css/formulariocss.css" />      
+    
 <div id="contenedor">              
          <form class="form-horizontal" action="/veterinariaconstanza/DoctorControl" method="post">
      <div class="form-group">
