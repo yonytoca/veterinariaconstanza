@@ -21,17 +21,20 @@
 <center>
     <h2 class="sub-header">Raza</h2>   
 </center>
-<div class="table-responsive">
-    <table class="table table-striped">
-        <thead>
+    
+    <div class="dataTable_wrapper">
+    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+         <thead>       
+          
             <tr><th>#</th><th>Nombre</th><th>especie</th></tr>   
         </thead>
         <tbody>
                     <c:forEach items="<%=razas%>" var="razas">
                 <tr><td>${razas.getId()}</td><td>${razas.getNombre()}</td><td>${razas.getEspecie_id().getNombre()}</td></tr>
             </c:forEach>
-        </tbody>
+        </tbody>         
     </table>
+       <h3><a href="crearraza.jsp"> Agregar Raza</a></a></h3>
 </div>
-    <a href="crearraza.jsp"> Agregar Raza</a>
+    
     <jsp:include page="teplate/footer.jsp"/>

@@ -10,7 +10,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <jsp:include page="teplate/header.jsp"/>
-<link rel="stylesheet" href="css/tablasvistacss.css" />
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%
     List<Cita> citas = ServicioCita.getInstancia().getListadoCita();
@@ -20,18 +20,35 @@
 <center>
     <h2 class="sub-header">Cita</h2>
 </center>
-<div class="table-responsive">
-    <table class="table table-striped">
-        <thead>
-            <tr><th>Codigo</th><th>Fecha</th><th>Paciente</th><th>Doctor</th><th>Razon</th></tr>   
-        </thead>
-        <tbody
-                    <c:forEach items="<%=citas%>" var="citas">
-                <tr><td>${citas.getId()}</td><td>${citas.getFecha()}</td><td>${citas.getPaciente_id().getNombre()}</td><td>${citas.getDoctor_id().getNombre()}</td><td>${citas.getRazon()}</td></tr>
 
-            </c:forEach>
-</tbody>
-    </table>
+   <div class="dataTable_wrapper">
+        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+            <thead>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Fecha</th>
+                    <th>Paciente</th>
+                    <th>Doctor</th>
+                    <th>Razon</th>
+                    <th>Editar</th>
+
+                </tr>  
+            </thead>
+            <tbody>
+                <c:forEach items="<%=citas%>" var="citas">
+                <tr>
+                    <td>${citas.getId()}</td>
+                    <td>${citas.getFecha()}</td>
+                    <td>${citas.getPaciente_id().getNombre()}</td>
+                    <td>${citas.getDoctor_id().getNombre()}</td>
+                    <td>${citas.getRazon()}</td>
+                    <td><a href="modificarcita.jsp?id=${citas.getId()}"><i class="glyphicon glyphicon-edit"></i></a></td>
+
+                </tr>
+            </c:forEach>               
+            </tbody>
+        </table>
+    </div>
 
 
 

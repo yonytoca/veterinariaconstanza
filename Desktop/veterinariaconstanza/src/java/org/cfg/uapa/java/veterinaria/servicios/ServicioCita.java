@@ -103,6 +103,34 @@ public class ServicioCita {
     }
       
     
+     public List<Cita> getListadoAgenda(int id) {
+
+
+        List<Cita> listaagenda = new ArrayList<>();
+
+                 try (PreparedStatement stmt = Coneccion.getInstancia().getConeccion().prepareStatement("select doctor.nombre, cita.id, cita.fecha, cita.razon from cita, doctor where cita.doctor_id = doctor.id=4")) {
+            try (ResultSet rs = stmt.executeQuery()) {      
+
+            while (rs.next()) {               
+                Cita cita = new Cita();
+                cita.setId(rs.getInt("id"));
+                cita.setFecha(rs.getString("fecha"));
+                cita.setPaciente_id(ServicioPaciente.getInstancia().getPacientePorId(rs.getInt("paciente_id")));
+                cita.setDoctor_id(ServicioDoctor.getInstancia().getDoctorPorId(rs.getInt("doctor_id")));
+                cita.setRazon(rs.getString("razon"));
+                listaagenda.add(cita);
+            }
+         }
+       
+            } catch (SQLException e) {
+                Logger.getLogger(ServicioCita.class.getName()).log(Level.SEVERE, null, e);
+            }
+        
+
+        return listaagenda;
+    }
+       
+    
     
     
     public boolean crearCita(Cita cita) {
@@ -141,7 +169,36 @@ public class ServicioCita {
         return estado;
 
     }   
+    public boolean editarCita(Cita  cita) {
+
+        boolean estado;
+        //PreparedStatement stmt = null ;
+        String sql = "update cita set fecha = ?,paciente_id = ?,doctor_id = ?,razon = ? where id = ?";
+
+        Connection con = Coneccion.getInstancia().getConeccion();
+
+        try (PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            //stmt = con.prepareStatement(sql);
+            stmt.setString(1, cita.getFecha());
+            stmt.setInt(2, cita.getPaciente_id().getId());
+            stmt.setInt(3, cita.getDoctor_id().getId());
+            stmt.setString(4, cita.getRazon());
+            stmt.setInt(5,cita.getId());
+
+            stmt.executeUpdate();
+
+            estado = true;
+
+        } catch (SQLException e) {
+            estado = false;
+            Logger.getLogger(ServicioCita.class.getName()).log(Level.SEVERE, null, e);
+        }
+
+        return estado;
+
     
+    }   
      
 
      

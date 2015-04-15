@@ -67,6 +67,6 @@
             </table>  
                <input type="submit" class="styled-button-1" value="Enviar" />
             </form>
-
+                    
         </div>
 <jsp:include page="teplate/footer.jsp"/>

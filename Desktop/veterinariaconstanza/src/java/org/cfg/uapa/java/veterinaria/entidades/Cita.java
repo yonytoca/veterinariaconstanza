@@ -86,6 +86,14 @@ public class Cita {
     public void setRazon(String razon) {
         this.razon = razon;
     }
+
+    public void setId(String id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setDoctor_id(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 

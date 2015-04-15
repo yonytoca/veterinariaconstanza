@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-          <link href="css/logincss.css" rel="stylesheet">
+          <link href="dist/css/logincss.css" rel="stylesheet">
          
     </head>
     <body>

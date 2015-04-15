@@ -4,6 +4,7 @@
     Author     : victor
 --%>
 
+<%@page import="org.apache.tomcat.util.http.fileupload.RequestContext"%>
 <%@page import="jdk.nashorn.internal.ir.RuntimeNode.Request"%>
 <%@page import="org.apache.tomcat.util.http.fileupload.FileItem"%>
 <%@page import="org.apache.tomcat.util.http.fileupload.FileUploadException"%>
@@ -29,7 +30,7 @@ ServletFileUpload upload = new ServletFileUpload(factory);
 
 try
 {
-List<FileItem> partes = upload.parseRequest(request);
+List<FileItem> partes = upload.parseRequest((RequestContext) request);
 
 for(FileItem item : partes)
 {

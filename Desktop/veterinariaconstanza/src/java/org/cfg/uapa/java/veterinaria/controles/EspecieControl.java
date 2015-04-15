@@ -43,11 +43,11 @@ public class EspecieControl extends HttpServlet {
 
         if (isCreado) {
 
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("especie.jsp");
 
         } else {
 
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("crearespecie.jsp");
 
         }
         

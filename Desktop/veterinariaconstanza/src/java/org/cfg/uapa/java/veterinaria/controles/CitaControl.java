@@ -39,7 +39,7 @@ public class CitaControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        
-         String fecha = request.getParameter("inoutfecha");          
+        String fecha = request.getParameter("inoutfecha");          
         String pacientes = request.getParameter("inputpaciente");
         String razon = request.getParameter("razon");
         String doctore = request.getParameter("inputdoctor");

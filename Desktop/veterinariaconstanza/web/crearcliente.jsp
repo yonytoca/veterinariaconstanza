@@ -10,12 +10,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-
+<link rel="stylesheet" href="dist/css/formulariocss.css" />
 
  <%
    List<Pais> pais = ServicioPais.getInstancia().getListadoPais();
 
 %>
+<centers>
          <h3>MANTENIMIENTO DE CLIENTE</h3>
         
         <div id="contenedor">          
@@ -23,7 +24,7 @@
               
                 
                  <div class="table-responsive">
-                        <table class="table table-striped">
+                       <table class="table table-striped">
                           
                   <tbody>
                     <tr>
@@ -69,5 +70,5 @@
             </form>
 
         </div>
-
+                </centers>>
 

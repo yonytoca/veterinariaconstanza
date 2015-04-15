@@ -4,6 +4,8 @@
     Author     : victor
 --%>
 
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="org.cfg.uapa.java.veterinaria.servicios.ServicioCita"%>
 <%@page import="org.cfg.uapa.java.veterinaria.entidades.Cita"%>
 <%@page import="org.cfg.uapa.java.veterinaria.servicios.ServicioDoctor"%>
@@ -11,18 +13,22 @@
 <%@page import="org.cfg.uapa.java.veterinaria.entidades.Doctor"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
- <%
- 
- int id = Integer.parseInt(request.getParameter("id"));
-  Cita citas = ServicioCita.getInstancia().getCitaPorId(id);
+<%
+    List<Doctor> doctor = ServicioDoctor.getInstancia().getListadoDoctores();
+    List<Cita> cita = ServicioCita.getInstancia().getListadoAgenda();
 %>
-<center>
-       <h2 class="sub-header">Cita</h2>
- <table class="table table-striped">
-     <tr><th>Codigo</th><th>Fecha</th><th>Paciente</th><th>Doctor</th><th>Razon</th></tr>    
-            <c:forEach items="<%=citas%>" var="citas">
-        <tr><td>${citas.getId()}</td><td>${citas.getFecha()}</td><td>${citas.getDoctor_id().getNombre()}</td></tr>
 
-    </c:forEach>
-</table>
-   </center>
+
+<div class="dataTable_wrapper">
+    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+        <thead>
+            <tr><th>#</th><th>Nmobre</th><th>Apellido</th></tr>
+        </thead>
+        <tbody
+            <c:forEach items="<%= cita %>" var="cita">
+                <tr><td>${cita.getId()}</td><td>${cita.getFecha()}</td></a><td>${cita.getPaciente_id().getNombre()}</td></tr>
+
+            </c:forEach>
+        </tbody> 
+    </table>
+</div>

@@ -49,11 +49,11 @@ public class RazaControl extends HttpServlet {
 
         if (isCreado) {
 
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("raza.jsp");
 
         } else {
 
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("crearraza.jsp");
 
         }
     }

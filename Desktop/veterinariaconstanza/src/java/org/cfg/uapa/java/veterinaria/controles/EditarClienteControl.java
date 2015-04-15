@@ -62,6 +62,7 @@ public class EditarClienteControl extends HttpServlet {
         cliente.setUsuario(usuario);
         cliente.setClave(clave);
         
+        
         boolean isCreado = ServicioCliente.getInstancia().editarCliente(cliente);
 
         if (isCreado) {

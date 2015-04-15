@@ -29,8 +29,8 @@
 <div id="contenedor">              
     <form class="form-horizontal" action="/veterinariaconstanza/PacienteControl" method="post">
         <div class="form-group">           
-   <label>Cliente</label>
-            <select id="combos" name="inputcliente">               
+            <label>Cliente</label><br>
+            <select id="combos" name="inputcliente" style="width:30%;">               
                 <option><c:forEach items="<%=clientes%>" var="clientes">
                     <option value="${clientes.getId()}">${clientes.getNombre()}</option>
                 </c:forEach></option> 
@@ -45,14 +45,14 @@
             </div>
             
             <div>
-                <label>Raza</label>             
-                <select id="combos" name="inputraza">
+                <label>Raza</label><br>             
+                <select id="combos" name="inputraza" style="width:30%;">
                     <c:forEach items="<%=razas%>" var="razas">
                         <option value="${razas.getId()}">${razas.getNombre()}</option>
                     </c:forEach>
                 </select> 
             </div>
-            <br><br> 
+           
             
             <div class="fecha">
                     <label>Fecha Nacimiento</label>
@@ -63,7 +63,7 @@
                             </i>
                         </span>
                     </div>
-            </div><br><br>
+            </div>
                 <script type="text/javascript">
                     $(function () {
                         $('#datetimepicker2').datetimepicker({
@@ -73,7 +73,7 @@
                     });
                 </script>
             <div>
-                <label>Peso</label>
+                <label>Peso</label><br>
                  <div class="input-icon">
             <i class="icon-user"></i>
             <input type="text" name="peso" style="width:30%;" class="form-control" placeholder="Peso" data-rule-required="true"/>
@@ -81,8 +81,8 @@
                 
             </div>
             <div>
-                <label>Doctor</label>
-                <select id="combos" name="inputdoctor">
+                <label>Doctor</label><br>
+                <select id="combos" name="inputdoctor" style="width:30%;">
                     <c:forEach items="<%=doctores%>" var="doctores">
                         <option value="${doctores.getId()}">${doctores.getNombre()}</option>
                     </c:forEach>

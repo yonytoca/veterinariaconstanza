@@ -16,19 +16,23 @@
 %>
 
 
-<center>
-    <h2> Especies</h2>
-</center>
-<div class="table-responsive">
-      <table class="table table-striped">
+
+    
+    <div class="dataTable_wrapper">
+    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
          <thead>        
-    <tr><th>Codigo</th><th>Especies</th></tr> 
+    <tr>
+        <th>Codigo</th>
+        <th>Especies</th>
+    </tr> 
          </thead>
          <tbody>
             <c:forEach items="<%=especie%>" var="especie">
         <tr><td>${especie.getId()}</td><td>${especie.getNombre()}</td></tr>
     </c:forEach>
-         </tbody>
-</table>
-    <a href="crearespecie.jsp"> Agregar Especie</a>
+         </tbody>          
+    </table>
+       <h3> <a href="crearespecie.jsp"> Agregar Especie</a></h3>
+</div>
+
  <jsp:include page="teplate/footer.jsp"/>
